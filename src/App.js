@@ -10,16 +10,31 @@ import Profile from './components/Profile/Profile';
 import EditIncident from './components/Profile/EditIncident';
 import IncidentDetail from './components/RecentIncidentView/IncidentDetail';
 import React, { useState, useEffect } from 'react';
+import data from './data.json';
 
 function App() {
 	const [incidents, setIncidents] = useState([]);
 	const [officers, setOfficers] = useState([]);
 
+	const incidentsHandler = (incidents) => {
+		setIncidents(incidents);
+	};
+
+	console.log(incidents);
+
 	return (
 		<div>
 			<main>
 				<HeaderNav />
-				<Route path='/' exact component={Main} />
+				<Route
+					path='/'
+					exact
+					render={() => {
+						return (
+							<Main incidents={incidents} incidentsHandler={incidentsHandler} />
+						);
+					}}
+				/>
 				<Route path='/incidents/new' component={CreateIncident} />
 				<Route path='/officers' component={OfficerView} />
 				<Route path='/officers/:id' component={OfficerDetail} />

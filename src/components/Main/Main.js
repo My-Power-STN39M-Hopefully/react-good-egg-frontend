@@ -10,6 +10,13 @@ function Main(props) {
 
 	return (
 		<div>
+			{/* <Link to={'/'}>
+				<h2> Incidents </h2>
+			</Link>
+			<Link to={'/officers'}>
+				<h2> Officers </h2>
+			</Link> */}
+
 			<ul>
 				{props.incidents.map((incident) => {
 					return (
@@ -18,7 +25,8 @@ function Main(props) {
 							date={incident.date}
 							category={incident.category}
 							officers={incident.officers}
-							id={incident.id}
+							// Will put actual id of obj from database when created //
+							id={incident.user_id}
 						/>
 					);
 				})}

@@ -10,7 +10,6 @@ import Profile from './components/Profile/Profile';
 import EditIncident from './components/Profile/EditIncident';
 import IncidentDetail from './components/RecentIncidentView/IncidentDetail';
 import React, { useState, useEffect } from 'react';
-import data from './data.json';
 
 function App() {
 	const [incidents, setIncidents] = useState([]);
@@ -26,6 +25,12 @@ function App() {
 		<div>
 			<main>
 				<HeaderNav />
+				<Link to={'/'}>
+					<button> Incidents </button>
+				</Link>
+				<Link to={'/officers'}>
+					<button> Officers </button>
+				</Link>
 				<Route
 					path='/'
 					exact

@@ -1,8 +1,17 @@
-#Good Egg
+# Good Egg Frontend
 
 A Police Accountability App, that focuses on good eggs and bad apples. It allows users to anonymously submit police incidents, view other user’s submissions, and view officer information along with the incidents made against them.
 
-https://docs.google.com/document/d/1RGpx1xOSL_z0AiBbX2pEe-yl0YwTn9aa5qOiA1ZrDQY/edit?usp=sharing
+Using react and react bootstrap users will be able to view their and others user incidents involving local police officers. In addition users will be able to sign in and sign up for an account and update thier profile.
+
+## Proposal:
+https://docs.google.com/document/d/1RGpx1xOSL_z0AiBbX2pEe-yl0YwTn9aa5qOiA1ZrDQY/edit
+
+### Project members:
+* [Cassioblu55](https://github.com/Cassioblu55)
+* [TabithaMaud](https://github.com/TabithaMaud)
+* [MorganMac1993](https://github.com/MorganMac1993)
+* [Caleb-Hollingsworth](https://github.com/Caleb-Hollingsworth)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

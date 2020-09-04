@@ -1,3 +1,10 @@
+#Good Egg
+
+A Police Accountability App, that focuses on good eggs and bad apples. It allows users to anonymously submit police incidents, view other user’s submissions, and view officer information along with the incidents made against them.
+
+https://docs.google.com/document/d/1RGpx1xOSL_z0AiBbX2pEe-yl0YwTn9aa5qOiA1ZrDQY/edit?usp=sharing
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -10,7 +10,19 @@ function Main(props) {
 
 	return (
 		<div>
-			<RecentIncidentView />
+			<ul>
+				{props.incidents.map((incident) => {
+					return (
+						<RecentIncidentView
+							description={incident.description}
+							date={incident.date}
+							category={incident.category}
+							officers={incident.officers}
+							id={incident.id}
+						/>
+					);
+				})}
+			</ul>
 		</div>
 	);
 }

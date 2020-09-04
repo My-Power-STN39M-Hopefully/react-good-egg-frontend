@@ -1,9 +1,18 @@
-import React from 'react';
 import './App.css';
 import { Route, Link, Redirect } from 'react-router-dom';
+import React, { Component } from 'react';
 
-function App() {
-	return <div></div>;
+class App extends Component {
+	constructor() {
+		super();
+		this.state = {
+			incidents: [],
+			officers: [],
+		};
+	}
+	render() {
+		return <div></div>;
+	}
 }
 
 export default App;

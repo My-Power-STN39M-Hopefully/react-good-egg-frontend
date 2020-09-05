@@ -1,6 +1,7 @@
 name: Development Build For Pull Requests
 on:
   pull_request:
+    types: [opened]
     branches:
       - development
 env:

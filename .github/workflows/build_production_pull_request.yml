@@ -6,6 +6,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    name: Build Pull Request
     
     strategy:
       matrix:
@@ -24,3 +25,4 @@ jobs:
       run: |
         yarn build
       env:
+        CI: ""

@@ -14,12 +14,12 @@ https://docs.google.com/document/d/1RGpx1xOSL_z0AiBbX2pEe-yl0YwTn9aa5qOiA1ZrDQY/
 * [Caleb-Hollingsworth](https://github.com/Caleb-Hollingsworth)
 
 # Prodcution Enviorment
-[AWS s3 Bucket Prodction](http://39m-hopefully-good-egg-front-end.s3-website.us-east-2.amazonaws.com)
+http://good-egg-reports.com/
 
 Whenever Master is merged a redeployment will be attempted. If successful the above site will be updated.
 
 # Development Enviorment
-[AWS s3 Bucket Development](http://39m-hopefully-good-egg-front-end-dev.s3-website.us-east-2.amazonaws.com)
+http://dev.good-egg-reports.com/
 
 Whenever Development is merged a redeployment will be attempted. If successful the above site will be updated.
 

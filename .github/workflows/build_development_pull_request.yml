@@ -3,7 +3,18 @@ on:
   pull_request:
     branches:
       - development
+env:
+  MY_GITHUB_TOKEN: ${{ secrets.AUTOMATE_ISSUES }}
 jobs:
+  assign_one_project:
+    runs-on: ubuntu-latest
+    name: Assign to MVP Frontend Project
+    steps:
+    - name: Assign NEW pull-request to MVP Backend Project
+      uses: srggrs/assign-one-project-github-action@1.2.0
+      if: github.event.action == 'opened'
+      with:
+        project: 'https://github.com/orgs/My-Power-STN39M-Hopefully/projects/1'
   build:
     runs-on: ubuntu-latest
     name: Build Pull Request

@@ -26,6 +26,8 @@ jobs:
     - name: Development Build
       run: |
         yarn build
+      env:
+        CI: ""
     - name: Deploy to S3
       uses: jakejarvis/s3-sync-action@master
       with:
@@ -36,4 +38,3 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: ${{ secrets.AWS_REGION }}
         SOURCE_DIR: "build"
-        CI: ""

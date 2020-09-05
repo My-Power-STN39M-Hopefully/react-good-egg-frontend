@@ -1,4 +1,4 @@
-name: Development Build
+name: Deploy Development Branch
 on:
   push:
     branches:
@@ -20,7 +20,7 @@ jobs:
     - name: Yarn Install
       run: |
         yarn install
-    - name: Development Build
+    - name: Deploy Development Branch
       run: |
         yarn build
       env:

@@ -19,6 +19,8 @@ function App() {
 		setIncidents(incidents);
 	};
 
+	const newArr = [];
+
 	console.log(incidents);
 
 	return (

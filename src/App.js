@@ -15,11 +15,31 @@ function App() {
 	const [incidents, setIncidents] = useState([]);
 	const [officers, setOfficers] = useState([]);
 
+	const incidentsHandler = (incidents) => {
+		setIncidents(incidents);
+	};
+
+	console.log(incidents);
+
 	return (
 		<div>
 			<main>
 				<HeaderNav />
-				<Route path='/' exact component={Main} />
+				<Link to={'/'}>
+					<button> Incidents </button>
+				</Link>
+				<Link to={'/officers'}>
+					<button> Officers </button>
+				</Link>
+				<Route
+					path='/'
+					exact
+					render={() => {
+						return (
+							<Main incidents={incidents} incidentsHandler={incidentsHandler} />
+						);
+					}}
+				/>
 				<Route path='/incidents/new' component={CreateIncident} />
 				<Route path='/officers' component={OfficerView} />
 				<Route path='/officers/:id' component={OfficerDetail} />

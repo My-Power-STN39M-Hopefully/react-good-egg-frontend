@@ -26,6 +26,8 @@ jobs:
     - name: Production Build
       run: |
         yarn build
+      env:
+        CI: ""
     - name: Unit Tests
       run: |
         yarn test
@@ -39,5 +41,3 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: ${{ secrets.AWS_REGION }}
         SOURCE_DIR: "build"
-        CI: ""
-

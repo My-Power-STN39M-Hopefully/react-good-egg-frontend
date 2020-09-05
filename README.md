@@ -13,6 +13,17 @@ https://docs.google.com/document/d/1RGpx1xOSL_z0AiBbX2pEe-yl0YwTn9aa5qOiA1ZrDQY/
 * [MorganMac1993](https://github.com/MorganMac1993)
 * [Caleb-Hollingsworth](https://github.com/Caleb-Hollingsworth)
 
+# Prodcution Enviorment
+[AWS s3 Bucket Prodction](http://39m-hopefully-good-egg-front-end.s3-website.us-east-2.amazonaws.com)
+
+Whenever Master is merged a redeployment will be attempted. If successful the above site will be updated.
+
+# Development Enviorment
+[AWS s3 Bucket Development](http://39m-hopefully-good-egg-front-end-dev.s3-website.us-east-2.amazonaws.com)
+
+Whenever Development is merged a redeployment will be attempted. If successful the above site will be updated.
+
+## Additional Information
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

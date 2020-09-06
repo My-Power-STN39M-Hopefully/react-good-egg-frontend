@@ -1,10 +1,6 @@
 import { Route, Link, Redirect } from 'react-router-dom';
-import IncidentDetail from './IncidentDetail';
-import React, { useState, useEffect } from 'react';
 
 function RecentIncidentView(props) {
-	console.log(props.match);
-
 	return (
 		<li>
 			<Link to={'incidents/' + props.id}>

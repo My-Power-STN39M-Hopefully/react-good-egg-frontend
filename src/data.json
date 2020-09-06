@@ -1,0 +1,62 @@
+[
+	{
+		"description": "Cop shoved me to the ground while I was peacefully protesting",
+		"category": "Use of Force",
+		"officers": "Jerome Turbyville",
+		"date": "Mar 3, 2020",
+		"time": "3:00pm",
+		"location": "Between Washington St and Alewife St, Chicago",
+		"formal_complaint": "Y",
+		"formal_complaint_cumber": "",
+		"witnesses_present": "Y",
+		"witnesses_information": "Declined",
+		"user_id": 1234,
+		"private": "",
+		"bad_apple": true
+	},
+	{
+		"description": "Cop illegally searched my car for no reason",
+		"category": "Illegal Search",
+		"officers": "Kevin Osborn",
+		"date": "Mar 27, 2020",
+		"time": "9:00pm",
+		"location": "On Tufts campus",
+		"formal_complaint": "N",
+		"formal_complaint_cumber": "",
+		"witnesses_present": "Y",
+		"witnesses_information": "Declined",
+		"user_id": 1254,
+		"private": "",
+		"bad_apple": true
+	},
+	{
+		"description": "Used derogatory slur about my sexual orientation",
+		"category": "Verbal Abuse",
+		"officers": "Paul Kusinski",
+		"date": "Apr 3, 2020",
+		"time": "1:00am",
+		"location": "Outside House of Blues",
+		"formal_complaint": "N",
+		"formal_complaint_cumber": "",
+		"witnesses_present": "Y",
+		"witnesses_information": "Declined",
+		"user_id": 1284,
+		"private": "",
+		"bad_apple": true
+	},
+	{
+		"description": "Cop hit me with a baton when I was obeying orders",
+		"category": "Use of Force",
+		"officers": "John Rodgers",
+		"date": "March 3, 2020",
+		"time": "2:00am",
+		"location": "Monroe St, Chicago",
+		"formal_complaint": "N",
+		"formal_complaint_cumber": "",
+		"witnesses_present": "Y",
+		"witnesses_information": "My friend Johnny and Jacob were there. You can text them at 555-555-5555",
+		"user_id": 1834,
+		"private": "",
+		"bad_apple": true
+	}
+]

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
-import { slide as Menu } from 'react-burger-menu';
 import SideBar from './Sidebar/SideBar';
 import './HeaderNav.css';
 

@@ -1,0 +1,12 @@
+.header {
+}
+.header-nav {
+	display: flex;
+	justify-content: space-between;
+}
+.title {
+}
+.nav-buttons {
+	margin-top: 1%;
+	margin-right: 1%;
+}

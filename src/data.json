@@ -12,7 +12,8 @@
 		"witnesses_information": "Declined",
 		"user_id": 1234,
 		"private": "",
-		"bad_apple": true
+		"bad_apple": true,
+		"id": 8475324
 	},
 	{
 		"description": "Cop illegally searched my car for no reason",
@@ -27,7 +28,8 @@
 		"witnesses_information": "Declined",
 		"user_id": 1254,
 		"private": "",
-		"bad_apple": true
+		"bad_apple": true,
+		"id": 823698
 	},
 	{
 		"description": "Used derogatory slur about my sexual orientation",
@@ -42,7 +44,8 @@
 		"witnesses_information": "Declined",
 		"user_id": 1284,
 		"private": "",
-		"bad_apple": true
+		"bad_apple": true,
+		"id": 8746350
 	},
 	{
 		"description": "Cop hit me with a baton when I was obeying orders",
@@ -57,6 +60,7 @@
 		"witnesses_information": "My friend Johnny and Jacob were there. You can text them at 555-555-5555",
 		"user_id": 1834,
 		"private": "",
-		"bad_apple": true
+		"bad_apple": true,
+		"id": 874602
 	}
 ]

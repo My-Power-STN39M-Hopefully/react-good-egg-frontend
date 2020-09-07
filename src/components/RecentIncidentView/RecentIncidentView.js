@@ -9,7 +9,12 @@ function RecentIncidentView(props) {
 					{props.category} : {props.date}
 				</h3>
 				<p>{props.description}</p>
-				<p>Officer Involved: {props.officers}</p>
+				<p>
+					Officer/s Involved:{' '}
+					<ul>
+						<li>{props.officers}</li>
+					</ul>
+				</p>
 			</Link>
 		</li>
 	);

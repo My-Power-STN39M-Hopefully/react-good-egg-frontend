@@ -1,0 +1,50 @@
+#page-wrap {
+	text-align: center;
+	overflow: auto;
+}
+.bm-item {
+	display: inline-block;
+	text-decoration: none;
+	margin-bottom: 10px;
+	transition: color 0.2s;
+}
+.bm-item:hover {
+	color: grey;
+}
+.bm-burger-button {
+	position: fixed;
+	width: 36px;
+	height: 30px;
+	left: 30px;
+	top: 56px;
+}
+.bm-cross-button {
+	height: 24px;
+	width: 24px;
+}
+.bm-burger-bars {
+	background: black;
+}
+.bm-burger-bars-hover {
+	background: grey;
+}
+.bm-cross {
+	height: 100px;
+	width: 100px;
+	border: solid 1px rgb(87, 85, 85);
+}
+.bm-menu {
+	background: rgb(12, 12, 12);
+	padding: 2.5em 1.5em 0;
+	text-align: right;
+}
+.bm-item-list {
+	color: white;
+	padding: 0.8em;
+}
+.bm-overlay {
+	background: red;
+}
+.logout-button {
+	background: red;
+}

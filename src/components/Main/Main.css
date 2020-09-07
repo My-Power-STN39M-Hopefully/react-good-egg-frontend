@@ -1,0 +1,4 @@
+.incidentList {
+	display: grid;
+	place-items: center;
+}

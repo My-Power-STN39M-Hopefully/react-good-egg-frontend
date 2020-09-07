@@ -2,6 +2,7 @@ import { Route, Link, Redirect } from 'react-router-dom';
 import RecentIncidentView from '../RecentIncidentView/RecentIncidentView';
 import data from '../../data.json';
 import React, { useState, useEffect } from 'react';
+import './Main.css';
 
 function Main(props) {
 	useEffect(() => {
@@ -9,7 +10,7 @@ function Main(props) {
 	});
 
 	return (
-		<div>
+		<div className='incidentList'>
 			<ul>
 				{props.incidents.map((incident) => {
 					return (

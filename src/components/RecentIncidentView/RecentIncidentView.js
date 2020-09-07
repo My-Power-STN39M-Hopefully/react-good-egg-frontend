@@ -1,9 +1,10 @@
 import { Route, Link, Redirect } from 'react-router-dom';
 import React from 'react';
+import './RecentIncidentView.css';
 
 function RecentIncidentView(props) {
 	return (
-		<li>
+		<div className='incidentSmall'>
 			<Link to={'incidents/' + props.id}>
 				<h3>
 					{props.category} : {props.date}
@@ -16,7 +17,7 @@ function RecentIncidentView(props) {
 					</ul>
 				</p>
 			</Link>
-		</li>
+		</div>
 	);
 }
 

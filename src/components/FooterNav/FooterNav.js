@@ -5,9 +5,9 @@ import './FooterNav.css';
 function FooterNav() {
 	return (
 		<div className='footer-nav'>
-			<Link to='/'>incidents</Link>
+			<Link to='/'>[Incidents]</Link>
 			<Link to='/incidents/new'>[+]</Link>
-			<Link to='/profile'>profile</Link>
+			<Link to='/profile'>[Profile]</Link>
 		</div>
 	);
 }

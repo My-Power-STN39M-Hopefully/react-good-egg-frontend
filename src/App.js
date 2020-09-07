@@ -19,10 +19,6 @@ function App() {
 		setIncidents(incidents);
 	};
 
-	const newArr = [];
-
-	console.log(incidents);
-
 	return (
 		<div>
 			<main>
@@ -47,7 +43,19 @@ function App() {
 				<Route path='/officers/:id' component={OfficerDetail} />
 				<Route path='/profile' component={Profile} />
 				<Route path='/incidents/:id/edit' component={EditIncident} />
-				<Route path='/incidents/:id' component={IncidentDetail} />
+				{/* <Route path='/incidents/:id' component={IncidentDetail} /> */}
+				<Route
+					path='/incidents/:id'
+					render={(routerProps) => {
+						return (
+							<IncidentDetail
+								incidents={incidents}
+								incidentsHandler={incidentsHandler}
+								match={routerProps.match}
+							/>
+						);
+					}}
+				/>
 				<FooterNav />
 			</main>
 		</div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import RecentIncidentView from '../RecentIncidentView/RecentIncidentView';
 
 class OfficerDetail extends Component {
 	render() {
@@ -28,7 +28,21 @@ class OfficerDetail extends Component {
 				</main>
 				<container>
 					<h3> Incidents: </h3>
-					<ul></ul>
+					<ul>
+						{/* This will be mapping over the date from fetch for the incidents that match the officer */}
+						{this.props.incidents.map((incident) => {
+							return (
+								<RecentIncidentView
+									description={incident.description}
+									date={incident.date}
+									category={incident.category}
+									officers={incident.officers}
+									match={this.props.match}
+									id={incident.id}
+								/>
+							);
+						})}
+					</ul>
 				</container>
 			</div>
 		);

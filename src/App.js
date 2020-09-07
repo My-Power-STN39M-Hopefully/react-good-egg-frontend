@@ -64,6 +64,7 @@ function App() {
 							<OfficerDetail
 								officers={officers}
 								officersHandler={officersHandler}
+								incidents={incidents}
 								match={routerProps.match}
 							/>
 						);

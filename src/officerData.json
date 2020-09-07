@@ -8,8 +8,8 @@
 		"race": "White",
 		"gender": "Male",
 		"force": "District 018",
-		"active": "yes"
-		// "id": 8713254
+		"active": "yes",
+		"id": 8713254
 	},
 	{
 		"first_name": "Jacob ",
@@ -20,8 +20,8 @@
 		"race": "Black",
 		"gender": "Male",
 		"force": "District 034",
-		"active": "yes"
-		// "id": 8713255
+		"active": "yes",
+		"id": 8713255
 	},
 	{
 		"first_name": "Sean",
@@ -32,8 +32,8 @@
 		"race": "White",
 		"gender": "Male",
 		"force": "District 004",
-		"active": "yes"
-		// "id": 8713256
+		"active": "yes",
+		"id": 8713256
 	},
 	{
 		"first_name": "Edward",
@@ -44,7 +44,7 @@
 		"race": "White",
 		"gender": "Male",
 		"force": "District 022",
-		"active": "yes"
-		// "id": 8713257
+		"active": "yes",
+		"id": 8713257
 	}
 ]

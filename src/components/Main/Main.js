@@ -19,8 +19,7 @@ function Main(props) {
 							category={incident.category}
 							officers={incident.officers}
 							match={props.match}
-							// Will put actual id of obj from database when created //
-							id={incident.user_id}
+							id={incident.id}
 						/>
 					);
 				})}

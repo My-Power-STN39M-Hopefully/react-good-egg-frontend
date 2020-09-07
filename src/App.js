@@ -19,6 +19,10 @@ function App() {
 		setIncidents(incidents);
 	};
 
+	const officersHandler = (officers) => {
+		setOfficers(officers);
+	};
+
 	return (
 		<div>
 			<main>
@@ -39,11 +43,23 @@ function App() {
 					}}
 				/>
 				<Route path='/incidents/new' component={CreateIncident} />
-				<Route path='/officers' component={OfficerView} />
+
+				<Route
+					path='/officers'
+					exact
+					render={() => {
+						return (
+							<OfficerView
+								officers={officers}
+								officersHandler={officersHandler}
+							/>
+						);
+					}}
+				/>
+
 				<Route path='/officers/:id' component={OfficerDetail} />
 				<Route path='/profile' component={Profile} />
 				<Route path='/incidents/:id/edit' component={EditIncident} />
-				{/* <Route path='/incidents/:id' component={IncidentDetail} /> */}
 				<Route
 					path='/incidents/:id'
 					render={(routerProps) => {

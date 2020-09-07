@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
 import OfficerDetail from './OfficeDetail';
+import officerData from '../../officerData.json';
 
-function OfficerView() {
-	return <div>Officer View</div>;
+function OfficerView(props) {
+	useEffect(() => {
+		props.officersHandler(officerData);
+	});
+
+	return (
+		<div>
+			<ul>
+				{props.officers.map((officer) => {
+					return (
+						<li>
+							<Link to={'officers/' + officer.id}>
+								<h3>
+									{officer.first_name} {officer.last_name}
+								</h3>
+								<p>DOB: {officer.dob}</p>
+								<p>
+									{officer.race} {officer.gender}
+								</p>
+								<p>Bad Apple Incidents: 100</p>
+							</Link>
+						</li>
+					);
+				})}
+			</ul>
+		</div>
+	);
 }
 
 export default OfficerView;

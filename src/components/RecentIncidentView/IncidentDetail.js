@@ -7,8 +7,7 @@ class IncidentDetail extends Component {
 		let result = {};
 		for (let i = 0; i < this.props.incidents.length; i++) {
 			if (
-				this.props.match.params.id ===
-				this.props.incidents[i].user_id.toString()
+				this.props.match.params.id === this.props.incidents[i].id.toString()
 			) {
 				result = this.props.incidents[i];
 			}

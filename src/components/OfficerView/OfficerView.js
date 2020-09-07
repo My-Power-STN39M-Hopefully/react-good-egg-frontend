@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
-import OfficerDetail from './OfficeDetail';
+import OfficerDetail from './OfficerDetail';
 import officerData from '../../officerData.json';
 
 function OfficerView(props) {
@@ -22,6 +22,7 @@ function OfficerView(props) {
 								<p>
 									{officer.race} {officer.gender}
 								</p>
+								{/* will need to figure out logic for pulling corresponding incidents for each officer */}
 								<p>Bad Apple Incidents: 100</p>
 							</Link>
 						</li>

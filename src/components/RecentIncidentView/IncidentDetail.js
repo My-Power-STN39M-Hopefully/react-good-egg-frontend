@@ -18,7 +18,13 @@ class IncidentDetail extends Component {
 				<h2>{result.category}</h2>
 				<p>Location: {result.location}</p>
 				<p>Date: {result.date}</p> <p>Time: {result.time}</p>
-				<p>Officer/s Involved: {result.officers}</p>
+				{/* Officers Involved should be a link that brings us to officer details */}
+				<p>
+					Officer/s Involved:{' '}
+					<ul>
+						<li>{result.officers}</li>
+					</ul>
+				</p>
 				<p>Description: {result.description}</p>
 				<p>Made a formal complaint? {result.formal_complaint}</p>
 			</div>

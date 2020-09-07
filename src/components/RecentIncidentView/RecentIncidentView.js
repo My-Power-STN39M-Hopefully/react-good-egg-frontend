@@ -2,6 +2,7 @@ import { Route, Link, Redirect } from 'react-router-dom';
 import React from 'react';
 
 function RecentIncidentView(props) {
+	
 	return (
 		<li>
 			<Link to={'incidents/' + props.id}>

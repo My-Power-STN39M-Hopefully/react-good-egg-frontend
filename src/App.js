@@ -5,7 +5,7 @@ import CreateIncident from './components/CreateIncident/CreateIncident';
 import FooterNav from './components/FooterNav/FooterNav';
 import HeaderNav from './components/HeaderNav/HeaderNav';
 import OfficerView from './components/OfficerView/OfficerView';
-import OfficerDetail from './components/OfficerView/OfficeDetail';
+import OfficerDetail from './components/OfficerView/OfficerDetail';
 import Profile from './components/Profile/Profile';
 import EditIncident from './components/Profile/EditIncident';
 import IncidentDetail from './components/RecentIncidentView/IncidentDetail';
@@ -57,7 +57,19 @@ function App() {
 					}}
 				/>
 
-				<Route path='/officers/:id' component={OfficerDetail} />
+				<Route
+					path='/officers/:id'
+					render={(routerProps) => {
+						return (
+							<OfficerDetail
+								officers={officers}
+								officersHandler={officersHandler}
+								match={routerProps.match}
+							/>
+						);
+					}}
+				/>
+
 				<Route path='/profile' component={Profile} />
 				<Route path='/incidents/:id/edit' component={EditIncident} />
 				<Route

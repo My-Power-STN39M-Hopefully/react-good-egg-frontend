@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
 
-function CreateIncident() {
+function CreateIncident(props) {
+	useEffect(() => {
+		props.usersHandler();
+	});
 	return <div>Create Incident</div>;
 }
 

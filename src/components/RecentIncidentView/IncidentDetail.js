@@ -1,5 +1,6 @@
 import { Route, Link, Redirect } from 'react-router-dom';
 import React, { Component } from 'react';
+import './IncidentDetail.css';
 
 class IncidentDetail extends Component {
 	render() {
@@ -14,7 +15,12 @@ class IncidentDetail extends Component {
 		}
 
 		return (
-			<div>
+			<div className='incidentDetail'>
+				{result.bad_apple === true ? (
+					<div className='badApple'>Bad Apple</div>
+				) : (
+					<div className='goodEgg'>Good Egg</div>
+				)}
 				<h2>{result.category}</h2>
 				<p>Location: {result.location}</p>
 				<p>Date: {result.date}</p> <p>Time: {result.time}</p>

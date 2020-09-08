@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
 import RecentIncidentView from '../RecentIncidentView/RecentIncidentView';
+import './OfficerDetail.css';
 
 class OfficerDetail extends Component {
 	render() {
@@ -13,7 +14,7 @@ class OfficerDetail extends Component {
 		}
 
 		return (
-			<div>
+			<div className='officerDetail'>
 				<main>
 					<h3>
 						Name: {result.first_name} {result.last_name}{' '}
@@ -26,24 +27,24 @@ class OfficerDetail extends Component {
 					<p>Unit: {result.force}</p>
 					<p>Active? {result.active}</p>
 				</main>
-				<container>
+				<div>
 					<h3> Incidents: </h3>
-					<ul>
-						{/* This will be mapping over the date from fetch for the incidents that match the officer */}
-						{this.props.incidents.map((incident) => {
-							return (
-								<RecentIncidentView
-									description={incident.description}
-									date={incident.date}
-									category={incident.category}
-									officers={incident.officers}
-									match={this.props.match}
-									id={incident.id}
-								/>
-							);
-						})}
-					</ul>
-				</container>
+
+					{/* This will be mapping over the date from fetch for the incidents that match the officer */}
+					{this.props.incidents.map((incident) => {
+						return (
+							<RecentIncidentView
+								description={incident.description}
+								date={incident.date}
+								category={incident.category}
+								officers={incident.officers}
+								match={this.props.match}
+								id={incident.id}
+								bad_apple={incident.bad_apple}
+							/>
+						);
+					})}
+				</div>
 			</div>
 		);
 	}

@@ -27,12 +27,14 @@ function App() {
 		<div>
 			<main>
 				<HeaderNav />
-				<Link to={'/'}>
-					<button> Incidents </button>
-				</Link>
-				<Link to={'/officers'}>
-					<button> Officers </button>
-				</Link>
+				<div className='toggleIncidentOfficer'>
+					<Link to={'/'}>
+						<button> Incidents </button>
+					</Link>
+					<Link to={'/officers'}>
+						<button> Officers </button>
+					</Link>
+				</div>
 				<Route
 					path='/'
 					exact

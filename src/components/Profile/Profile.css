@@ -1,0 +1,12 @@
+.user-incidents {
+	display: grid;
+	place-items: center;
+	padding: 20px;
+}
+.incidents-small {
+	padding: 10px;
+	border: 1px solid lightgrey;
+	border-radius: 3px;
+	width: 100%;
+	margin: 10px;
+}

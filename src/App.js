@@ -10,10 +10,14 @@ import Profile from './components/Profile/Profile';
 import EditIncident from './components/Profile/EditIncident';
 import IncidentDetail from './components/RecentIncidentView/IncidentDetail';
 import React, { useState, useEffect } from 'react';
+import SignIn from './components/SignIn/SignIn';
+import SignUp from './components/SignUp/SignUp';
 
 function App(props) {
 	const [incidents, setIncidents] = useState([]);
 	const [officers, setOfficers] = useState([]);
+
+	const [users, setUsers] = useState([]);
 
 	const incidentsHandler = (incidents) => {
 		setIncidents(incidents);
@@ -23,8 +27,12 @@ function App(props) {
 		setOfficers(officers);
 	};
 
+	const usersHandler = (users) => {
+		setUsers(users);
+	};
+
 	return (
-		<div>
+		<div className='main'>
 			<main>
 				<HeaderNav />
 				{(props.location.pathname === '/' ||
@@ -76,7 +84,20 @@ function App(props) {
 					}}
 				/>
 
-				<Route path='/profile' component={Profile} />
+				<Route
+					path='/profile'
+					render={(routerProps) => {
+						return (
+							<Profile
+								users={users}
+								usersHandler={usersHandler}
+								incidents={incidents}
+								incidentsHandler={incidentsHandler}
+								match={routerProps.match}
+							/>
+						);
+					}}
+				/>
 				<Route path='/incidents/:id/edit' component={EditIncident} />
 				<Route
 					path='/incidents/:id'
@@ -92,6 +113,8 @@ function App(props) {
 						);
 					}}
 				/>
+				<Route path='/sign-in' component={SignIn} />
+				<Route path='/sign-up' component={SignUp} />
 				<FooterNav />
 			</main>
 		</div>

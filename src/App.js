@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Link, Redirect } from 'react-router-dom';
+import { Route, Link, Redirect, withRouter } from 'react-router-dom';
 import Main from './components/Main/Main';
 import CreateIncident from './components/CreateIncident/CreateIncident';
 import FooterNav from './components/FooterNav/FooterNav';
@@ -11,7 +11,7 @@ import EditIncident from './components/Profile/EditIncident';
 import IncidentDetail from './components/RecentIncidentView/IncidentDetail';
 import React, { useState, useEffect } from 'react';
 
-function App() {
+function App(props) {
 	const [incidents, setIncidents] = useState([]);
 	const [officers, setOfficers] = useState([]);
 
@@ -27,14 +27,17 @@ function App() {
 		<div>
 			<main>
 				<HeaderNav />
-				<div className='toggleIncidentOfficer'>
-					<Link to={'/'}>
-						<button> Incidents </button>
-					</Link>
-					<Link to={'/officers'}>
-						<button> Officers </button>
-					</Link>
-				</div>
+				{(props.location.pathname === '/' ||
+					props.location.pathname === '/officers') && (
+					<div className='toggleIncidentOfficer'>
+						<Link to={'/'}>
+							<button> Incidents </button>
+						</Link>
+						<Link to={'/officers'}>
+							<button> Officers </button>
+						</Link>
+					</div>
+				)}
 				<Route
 					path='/'
 					exact
@@ -79,11 +82,13 @@ function App() {
 					path='/incidents/:id'
 					render={(routerProps) => {
 						return (
-							<IncidentDetail
-								incidents={incidents}
-								incidentsHandler={incidentsHandler}
-								match={routerProps.match}
-							/>
+							props.location.pathname !== '/incidents/new' && (
+								<IncidentDetail
+									incidents={incidents}
+									incidentsHandler={incidentsHandler}
+									match={routerProps.match}
+								/>
+							)
 						);
 					}}
 				/>

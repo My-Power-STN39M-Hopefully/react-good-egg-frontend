@@ -1,0 +1,21 @@
+.officerList {
+	display: grid;
+	place-items: center;
+	padding: 20px;
+}
+
+.officerSmall {
+	padding: 10px;
+	border: 1px solid lightgrey;
+	border-radius: 3px;
+	width: 100%;
+	margin: 10px;
+}
+
+.officerSmall h3 {
+	color: black;
+}
+
+.officerSmall p {
+	color: grey;
+}

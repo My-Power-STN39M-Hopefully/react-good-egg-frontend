@@ -1,0 +1,27 @@
+.incidentSmall {
+	padding: 10px;
+	border: 1px solid lightgrey;
+	border-radius: 3px;
+	width: 100%;
+	margin: 10px;
+}
+
+.incidentSmall h3 {
+	color: black;
+}
+
+.incidentSmall p {
+	color: grey;
+}
+
+.badApple {
+	border: 2px solid red;
+	color: red;
+	display: inline;
+}
+
+.goodEgg {
+	border: 2px solid blue;
+	color: blue;
+	display: inline;
+}

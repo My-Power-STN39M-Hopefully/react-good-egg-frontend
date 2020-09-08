@@ -9,10 +9,10 @@
 }
 .bm-burger-button {
 	position: fixed;
-	width: 36px;
-	height: 30px;
-	left: 30px;
-	top: 56px;
+	width: 30px;
+	height: 25px;
+	left: 20px;
+	top: 15px;
 }
 .bm-cross-button {
 	height: 24px;
@@ -31,16 +31,16 @@
 }
 .bm-menu {
 	background: rgb(12, 12, 12);
-	padding: 2.5em 1.5em 0;
-	text-align: right;
+	padding-top: 0.5em;
+	text-align: center;
+	font-size: 2em;
+	color: white;
 }
 .bm-item-list {
 	color: white;
 	padding: 0.8em;
 }
-.bm-overlay {
-	background: red;
-}
+
 .logout-button {
-	background: red;
+	background: rgb(240, 98, 98);
 }

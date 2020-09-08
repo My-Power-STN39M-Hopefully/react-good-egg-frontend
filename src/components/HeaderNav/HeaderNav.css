@@ -1,17 +1,25 @@
 .header {
+	background-color: white;
+	position: fixed;
+	width: 100vw;
+	top: 0;
+	vertical-align: middle;
 }
 .header-nav {
 	display: flex;
-	justify-content: space-between;
-	align-content: center;
+	justify-content: center;
 }
 .title {
-	margin-top: 15px;
+	text-align: center;
 }
 
 .nav-buttons {
 	display: flex;
 	flex-direction: column;
-	margin-top: 4%;
-	margin-left: -20%;
+	position: fixed;
+	right: 0px;
+	margin-top: 15px;
+	margin-right: 15px;
+}
+.side-bar {
 }

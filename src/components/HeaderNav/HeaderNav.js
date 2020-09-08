@@ -6,9 +6,6 @@ import './HeaderNav.css';
 let handleSignIn = () => {
 	alert('Sign-In page coming soon');
 };
-let handleSignUp = (data) => {
-	alert('Sign-Up page coming soon');
-};
 
 function HeaderNav() {
 	return (
@@ -21,14 +18,9 @@ function HeaderNav() {
 							Sign-In
 						</button>
 					</Link>
-					<Link to='/sign-up'>
-						<button type='submit' class='sing-up' onClick={handleSignUp}>
-							Sign-Up
-						</button>
-					</Link>
 				</div>
 			</main>
-			<SideBar />
+			<SideBar className='side-bar' />
 		</div>
 	);
 }

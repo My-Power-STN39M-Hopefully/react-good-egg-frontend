@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import data from '../../data.json';
-import { Route, Link, Redirect } from 'react-router-dom';
-import EditIncident from './EditIncident';
+import { Link } from 'react-router-dom';
 import './Profile.css';
 
 function Profile(props) {

@@ -1,6 +1,6 @@
 .sign-up-form {
 	place-items: center;
 	margin: 20px;
-}
-.sign-up-button {
+	position: relative;
+	z-index: -2;
 }

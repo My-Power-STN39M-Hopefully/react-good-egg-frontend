@@ -10,6 +10,10 @@ function Profile(props) {
 	});
 	//need logic for finding incidents for particular user
 
+	const handleEditClick = (event) => {
+		props.editIncidentHandler(event.target.id);
+	};
+
 	return (
 		<div className='profile'>
 			<header className='user-info'>
@@ -27,18 +31,23 @@ function Profile(props) {
 					return (
 						<div className='user-incidents'>
 							<div className='incidents-small'>
-								<Link to={'incidents/' + incident.id}>
-									{incident.bad_apple === true ? (
-										<div className='badApple'>Bad Apple</div>
-									) : (
-										<div className='goodEgg'>Good Egg</div>
-									)}
-									<h3>
-										{incident.category} : {incident.date}
-									</h3>
-									<p>{incident.description}</p>
-									<p>Officer/s Involved: {incident.officers}</p>
-									<button className='edit-button'>Edit</button>
+								{incident.bad_apple === true ? (
+									<div className='badApple'>Bad Apple</div>
+								) : (
+									<div className='goodEgg'>Good Egg</div>
+								)}
+								<h3>
+									{incident.category} : {incident.date}
+								</h3>
+								<p>{incident.description}</p>
+								<p>Officer/s Involved: {incident.officers}</p>
+								<Link to={'incidents/' + incident.id + '/edit'}>
+									<button
+										className='edit-button'
+										id={incident.id}
+										onClick={handleEditClick}>
+										Edit
+									</button>
 								</Link>
 							</div>
 						</div>

@@ -19,6 +19,12 @@ function App(props) {
 
 	const [users, setUsers] = useState([]);
 
+	const [editIncidentId, setEditIncident] = useState('');
+
+	const editIncidentHandler = (incidentId) => {
+		setEditIncident(incidentId);
+	};
+
 	const incidentsHandler = (incidents) => {
 		setIncidents(incidents);
 	};
@@ -31,6 +37,7 @@ function App(props) {
 		setUsers(users);
 	};
 
+	console.log(editIncidentId);
 	return (
 		<div className='main'>
 			<main>
@@ -93,14 +100,28 @@ function App(props) {
 								usersHandler={usersHandler}
 								incidents={incidents}
 								incidentsHandler={incidentsHandler}
+								editIncidentHandler={editIncidentHandler}
 								match={routerProps.match}
 							/>
 						);
 					}}
 				/>
-				<Route path='/incidents/:id/edit' component={EditIncident} />
+				<Route
+					path='/incidents/:id/edit'
+					render={(routerProps) => {
+						return (
+							<EditIncident
+								editIncidentId={editIncidentId}
+								incidents={incidents}
+								match={routerProps.match}
+							/>
+						);
+					}}
+				/>
+
 				<Route
 					path='/incidents/:id'
+					exact
 					render={(routerProps) => {
 						return (
 							props.location.pathname !== '/incidents/new' && (

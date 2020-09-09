@@ -10,7 +10,6 @@ class EditProfile extends Component {
 	};
 	handleUpdate = (e) => {
 		e.preventDefault();
-		console.log('hello');
 		this.setState({ redirect: true });
 	};
 	render() {

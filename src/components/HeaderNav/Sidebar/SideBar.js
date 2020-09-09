@@ -25,8 +25,14 @@ class SideBar extends Component {
 					pageWrapId={'page-wrap'}
 					outerContainerId={'outer-container'}
 					width={'100%'}>
+					<Link to='/' onClick={() => this.closeMenu()}>
+						Incidents
+					</Link>
 					<Link to='/incidents/new' onClick={() => this.closeMenu()}>
 						New Incident
+					</Link>
+					<Link to='/officers' onClick={() => this.closeMenu()}>
+						Officers
 					</Link>
 					<Link to='/profile' onClick={() => this.closeMenu()}>
 						Profile

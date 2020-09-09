@@ -35,6 +35,7 @@
 	text-align: center;
 	font-size: 2em;
 	color: white;
+	z-index: 100;
 }
 .bm-item-list {
 	color: white;

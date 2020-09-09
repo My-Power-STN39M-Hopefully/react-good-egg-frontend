@@ -2,6 +2,7 @@
 	place-items: center;
 	margin: 20px;
 	margin-top: 150px;
+	z-index: -2;
 }
 .sign-in-button {
 	margin-right: 20px;

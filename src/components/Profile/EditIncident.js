@@ -15,7 +15,6 @@ class EditIncident extends Component {
 		for (let i = 0; i < this.props.incidents.length; i++) {
 			if (this.props.editIncidentId === this.props.incidents[i].id.toString()) {
 				result = this.props.incidents[i];
-				console.log(result);
 			}
 		}
 

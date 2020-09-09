@@ -53,7 +53,6 @@ class CreateIncident extends Component {
 			witnesses_information: this.state.witnesses_information,
 			private: this.state.private,
 		};
-		console.log(newIncident);
 	};
 
 	render() {

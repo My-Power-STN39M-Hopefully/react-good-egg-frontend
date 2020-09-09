@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import data from '../../data.json';
-import { Route, Link, Redirect } from 'react-router-dom';
-import EditIncident from './EditIncident';
+import { Link } from 'react-router-dom';
 import './Profile.css';
 
 function Profile(props) {
@@ -13,13 +12,17 @@ function Profile(props) {
 	return (
 		<div className='profile'>
 			<header className='user-info'>
-				<h3>Name</h3>
-				<ul>
-					<li>Nationality</li>
-					<li>Gender</li>
-					<li>City, State</li>
-				</ul>
-				<button>Edit Profile</button>
+				<div>
+					<h3>Name</h3>
+					<ul>
+						<li>Nationality</li>
+						<li>Gender</li>
+						<li>City, State</li>
+					</ul>
+					<Link to='/profile/edit'>
+						<button>Edit Profile</button>
+					</Link>
+				</div>
 			</header>
 			<main>
 				{/* placeholder until we get signUp-form and signIn-form operating with api */}

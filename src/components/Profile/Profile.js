@@ -12,15 +12,17 @@ function Profile(props) {
 	return (
 		<div className='profile'>
 			<header className='user-info'>
-				<h3>Name</h3>
-				<ul>
-					<li>Nationality</li>
-					<li>Gender</li>
-					<li>City, State</li>
-				</ul>
-				<Link to='/profile/edit'>
-					<button>Edit Profile</button>
-				</Link>
+				<div>
+					<h3>Name</h3>
+					<ul>
+						<li>Nationality</li>
+						<li>Gender</li>
+						<li>City, State</li>
+					</ul>
+					<Link to='/profile/edit'>
+						<button>Edit Profile</button>
+					</Link>
+				</div>
 			</header>
 			<main>
 				{/* placeholder until we get signUp-form and signIn-form operating with api */}

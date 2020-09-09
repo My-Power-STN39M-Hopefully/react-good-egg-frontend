@@ -12,6 +12,7 @@ import IncidentDetail from './components/RecentIncidentView/IncidentDetail';
 import React, { useState, useEffect } from 'react';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
+import EditProfile from './components/Profile/EditProfile/EditProfile';
 
 function App(props) {
 	const [incidents, setIncidents] = useState([]);
@@ -86,6 +87,7 @@ function App(props) {
 
 				<Route
 					path='/profile'
+					exact
 					render={(routerProps) => {
 						return (
 							<Profile
@@ -116,6 +118,7 @@ function App(props) {
 				<Route path='/sign-in' component={SignIn} />
 				<Route path='/sign-up' component={SignUp} />
 				<FooterNav />
+				<Route path='/profile/edit' component={EditProfile} />
 			</main>
 		</div>
 	);

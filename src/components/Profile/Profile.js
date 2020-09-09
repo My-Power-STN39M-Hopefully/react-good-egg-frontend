@@ -19,7 +19,9 @@ function Profile(props) {
 					<li>Gender</li>
 					<li>City, State</li>
 				</ul>
-				<button>Edit Profile</button>
+				<Link to='/profile/edit'>
+					<button>Edit Profile</button>
+				</Link>
 			</header>
 			<main>
 				{/* placeholder until we get signUp-form and signIn-form operating with api */}

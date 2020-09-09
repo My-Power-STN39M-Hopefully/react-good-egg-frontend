@@ -57,6 +57,7 @@ class CreateIncident extends Component {
 						<Form.Label>Officer</Form.Label>
 						<Form.Control as='select' defaultValue='Choose...'>
 							<option>Choose...</option>
+							<option>Unknown</option>
 							<option>John Smith</option>
 							<option>Robert Jend</option>
 							<option>Daniel Brooks</option>
@@ -107,7 +108,9 @@ class CreateIncident extends Component {
 							/>
 						</Form.Group>
 					</Form.Group>
-
+					<Form.Group controlId='formGridPrivate'>
+						<Form.Check type='checkbox' label='Keep Private' />
+					</Form.Group>
 					<button>Submit</button>
 				</Form>
 			</div>

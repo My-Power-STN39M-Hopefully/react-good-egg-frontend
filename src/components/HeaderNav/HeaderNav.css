@@ -4,6 +4,7 @@
 	width: 100vw;
 	top: 0;
 	vertical-align: middle;
+	z-index: 100;
 }
 .header-nav {
 	display: flex;

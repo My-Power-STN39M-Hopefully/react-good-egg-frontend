@@ -27,7 +27,7 @@ class CreateIncident extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='create-form'>
 				<h1>Incident Form</h1>
 				<Form className='incidentForm'>
 					<Form.Row>

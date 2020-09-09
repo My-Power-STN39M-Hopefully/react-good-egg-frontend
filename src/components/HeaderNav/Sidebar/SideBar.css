@@ -3,6 +3,7 @@
 	text-decoration: none;
 	margin-bottom: 10px;
 	transition: color 0.2s;
+	z-index: 100;
 }
 .bm-item:hover {
 	color: grey;
@@ -35,7 +36,6 @@
 	text-align: center;
 	font-size: 2em;
 	color: white;
-	z-index: 100;
 }
 .bm-item-list {
 	color: white;

@@ -79,6 +79,7 @@ class CreateIncident extends Component {
 							<option>Drug / Alcohol Abuse</option>
 							<option>Bribery / Official Corruption</option>
 							<option>Illegal Search</option>
+							<option>Praise</option>
 							<option>OTHER</option>
 						</Form.Control>
 					</Form.Group>

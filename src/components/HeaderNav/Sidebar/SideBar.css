@@ -20,10 +20,10 @@
 	width: 24px;
 }
 .bm-burger-bars {
-	background: black;
+	background: var(--mainDarkBlueColor);
 }
 .bm-burger-bars-hover {
-	background: grey;
+	background: var(--mainDarkBlueColor);
 }
 .bm-cross {
 	height: 100px;

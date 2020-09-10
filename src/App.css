@@ -1,8 +1,32 @@
+:root {
+	--mainDivColor: rgba(1, 46, 71, 0.7);
+	--mainBlueColor: #b4def3;
+	--mainRedColor: #ff0100;
+	--mainDarkBlueColor: rgb(1, 46, 71);
+}
+
 .main {
 	margin-top: 56px;
 	margin-bottom: 56px;
 }
 
+.formInput {
+	color: var(--mainDivColor);
+}
+
 h1 {
 	text-align: center;
+	color: var(--mainBlueColor);
 }
+
+h2 {
+	color: var(--mainBlueColor);
+}
+
+h3 {
+	color: var(--mainBlueColor);
+}
+
+/* div {
+	background-color: #012e47;
+} */

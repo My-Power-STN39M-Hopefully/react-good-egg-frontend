@@ -7,13 +7,10 @@
 
 .officerSmall {
 	padding: 10px;
-	border: 1px solid lightgrey;
-	border-radius: 3px;
+	border: 2px solid var(--mainDarkBlueColor);
+	border-radius: 7px;
 	width: 100%;
-}
-
-.officerSmall h3 {
-	color: black;
+	background-color: var(--mainDivColor);
 }
 
 .officerSmall p {

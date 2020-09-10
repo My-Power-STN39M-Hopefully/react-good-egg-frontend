@@ -1,3 +1,15 @@
 .incidentForm {
 	margin: 20px;
 }
+
+.incidentForm input,
+.incidentForm textarea,
+.incidentForm select {
+	background-color: var(--mainDivColor);
+	border: 2px solid var(--mainDarkBlueColor);
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.incidentForm label {
+	color: rgba(255, 255, 255, 0.4);
+}

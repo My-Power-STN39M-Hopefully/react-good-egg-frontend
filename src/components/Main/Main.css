@@ -28,7 +28,6 @@
 	outline: none;
 }
 .selected button {
-	font-weight: 800;
 	font-size: 24px;
-	border-bottom: var(--mainBlueColor) solid 4px;
+	border-bottom: var(--mainRedColor) solid 4px;
 }

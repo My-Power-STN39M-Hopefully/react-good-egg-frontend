@@ -1,15 +1,15 @@
-.user-incidents {
+/* .user-incidents {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	grid-gap: 2rem;
 	padding: 20px;
-}
-.incidents-small {
+} */
+/* .incidents-small {
 	padding: 10px;
 	border: 1px solid lightgrey;
 	border-radius: 3px;
 	width: 100%;
-}
+} */
 .user-info {
 	display: flex;
 	flex-direction: column;

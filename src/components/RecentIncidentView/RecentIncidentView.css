@@ -1,13 +1,14 @@
 .incidentSmall {
 	padding: 10px;
-	border: 1px solid lightgrey;
-	border-radius: 3px;
+	border: 2px solid rgb(1, 46, 71);
+	border-radius: 7px;
 	width: 100%;
+	background-color: rgba(1, 46, 71, 0.7);
 }
 
-.incidentSmall h3 {
+/* .incidentSmall h3 {
 	color: black;
-}
+} */
 
 .incidentSmall p {
 	color: grey;

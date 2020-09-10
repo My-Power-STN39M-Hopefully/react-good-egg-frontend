@@ -1,31 +1,8 @@
-.toggleIncidentOfficer {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-bottom: 40px;
-}
-
-.toggleIncidentOfficer button {
-	margin: 20px;
-	background-color: white;
-	border: none;
-	font: inherit;
-	font-size: 24px;
-	cursor: pointer;
-	height: 50px;
-	outline: none;
-}
-
-.toggleIncidentOfficer button:focus {
-	outline: none;
-}
 .main {
 	margin-top: 56px;
 	margin-bottom: 56px;
 }
 
-.selected button {
-	font-weight: 800;
-	font-size: 24px;
-	border-bottom: black solid 4px;
+h1 {
+	text-align: center;
 }

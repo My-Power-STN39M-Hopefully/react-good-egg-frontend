@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import './EditIncident.css';
 
 class EditIncident extends Component {
 	constructor() {
@@ -179,6 +179,7 @@ class EditIncident extends Component {
 						/>
 					</Form.Group>
 					<button>Submit</button>
+					<button className='deleteButton'>Delete</button>
 				</Form>
 			</div>
 		);

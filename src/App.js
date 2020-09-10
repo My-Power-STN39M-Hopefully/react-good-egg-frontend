@@ -38,7 +38,6 @@ function App(props) {
 		setUsers(users);
 	};
 
-	console.log(editIncidentId);
 	return (
 		<div className='main'>
 			<main>

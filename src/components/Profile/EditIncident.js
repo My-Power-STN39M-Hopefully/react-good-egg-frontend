@@ -137,6 +137,7 @@ class EditIncident extends Component {
 					<Form.Group controlId='formal_complaint'>
 						<Form.Check
 							type='checkbox'
+							checked={result.formal_complaint}
 							defaultValue={result.formal_complaint}
 							label='I filed a formal police complaint'
 							onChange={this.handleInputChange}
@@ -154,6 +155,7 @@ class EditIncident extends Component {
 						<Form.Check
 							type='checkbox'
 							label='There were witnesses'
+							checked={result.witnesses_present}
 							defaultValue={result.witnesses_present}
 							onChange={this.handleInputChange}
 						/>
@@ -171,6 +173,7 @@ class EditIncident extends Component {
 						<Form.Check
 							type='checkbox'
 							label='Keep Private'
+							checked={result.private}
 							defaultValue={result.private}
 							onChange={this.handleInputChange}
 						/>

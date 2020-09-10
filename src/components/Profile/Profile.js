@@ -28,11 +28,11 @@ function Profile(props) {
 					</Link>
 				</div>
 			</header>
-			<main>
+			<main className='user-incidents'>
 				{/* placeholder until we get signUp-form and signIn-form operating with api */}
 				{props.incidents.map((incident) => {
 					return (
-						<div className='user-incidents'>
+						<div>
 							<div className='incidents-small'>
 								{incident.bad_apple === true ? (
 									<div className='badApple'>Bad Apple</div>

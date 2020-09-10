@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Link, Redirect, withRouter } from 'react-router-dom';
+import { Route, NavLink, Link, Redirect, withRouter } from 'react-router-dom';
 import Main from './components/Main/Main';
 import CreateIncident from './components/CreateIncident/CreateIncident';
 import FooterNav from './components/FooterNav/FooterNav';
@@ -46,12 +46,12 @@ function App(props) {
 				{(props.location.pathname === '/' ||
 					props.location.pathname === '/officers') && (
 					<div className='toggleIncidentOfficer'>
-						<Link to={'/'}>
-							<button> Incidents </button>
-						</Link>
-						<Link to={'/officers'}>
-							<button> Officers </button>
-						</Link>
+						<NavLink to={'/'} exact activeClassName='selected'>
+							<a> Incidents </a>
+						</NavLink>
+						<NavLink to={'/officers'} activeClassName='selected'>
+							<a> Officers </a>
+						</NavLink>
 					</div>
 				)}
 				<Route

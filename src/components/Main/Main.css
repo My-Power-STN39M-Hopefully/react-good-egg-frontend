@@ -14,7 +14,8 @@
 
 .toggleIncidentOfficer button {
 	margin: 20px;
-	background-color: white;
+	background-color: black;
+	color: var(--mainBlueColor);
 	border: none;
 	font: inherit;
 	font-size: 24px;
@@ -29,5 +30,5 @@
 .selected button {
 	font-weight: 800;
 	font-size: 24px;
-	border-bottom: black solid 4px;
+	border-bottom: var(--mainBlueColor) solid 4px;
 }

@@ -3,10 +3,6 @@ import { Route, Link, Redirect } from 'react-router-dom';
 import SideBar from './Sidebar/SideBar';
 import './HeaderNav.css';
 
-let handleSignIn = () => {
-	alert('Sign-In page coming soon');
-};
-
 function HeaderNav() {
 	return (
 		<div className='header'>
@@ -14,7 +10,7 @@ function HeaderNav() {
 				<h1 className='title'>GoodEgg</h1>
 				<div className='nav-buttons'>
 					<Link to='/sign-in'>
-						<button type='submit' className='sign-in' onClick={handleSignIn}>
+						<button type='submit' className='sign-in'>
 							Sign-In
 						</button>
 					</Link>

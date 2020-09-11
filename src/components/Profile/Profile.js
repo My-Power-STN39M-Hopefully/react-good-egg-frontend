@@ -39,9 +39,8 @@ function Profile(props) {
 								) : (
 									<div className='goodEgg'>Good Egg</div>
 								)}
-								<h3>
-									{incident.category} : {incident.date}
-								</h3>
+								<h3>{incident.category}</h3>
+								<p className='date'>{incident.date} </p>
 								<p>{incident.description}</p>
 								<p>Officer/s Involved: {incident.officers}</p>
 								<Link to={'incidents/' + incident.id + '/edit'}>

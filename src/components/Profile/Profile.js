@@ -15,17 +15,18 @@ function Profile(props) {
 
 	return (
 		<div className='profile'>
+			<div className='user-icon'>T</div>
 			<header className='user-info'>
 				<div>
-					<h3>Name</h3>
-					<ul>
-						<li>Nationality</li>
-						<li>Gender</li>
-						<li>City, State</li>
-					</ul>
-					<Link to='/profile/edit'>
-						<button>Edit Profile</button>
-					</Link>
+					<h3 className='user-name'>Tabitha</h3>
+					<div className='user-details'>
+						<p>American</p>
+						<p>White Female</p>
+						<p>Boston, MA</p>
+						<Link to='/profile/edit'>
+							<button className='edit-profile-button'>Edit Profile</button>
+						</Link>
+					</div>
 				</div>
 			</header>
 			<main className='incidentList'>

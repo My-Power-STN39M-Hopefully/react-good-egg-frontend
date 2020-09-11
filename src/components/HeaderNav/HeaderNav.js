@@ -41,13 +41,11 @@ class HeaderNav extends Component {
 						<main className='header-nav'>
 							<SideBar className='side-bar' />
 							<h1 className='title'>GoodEgg</h1>
-							<div className='nav-buttons'>
-								<Link to='/sign-in'>
-									<button type='submit' className='sign-in'>
-										Sign-In
-									</button>
-								</Link>
-							</div>
+							<Link to='/sign-in'>
+								<button type='submit' className='sign-in'>
+									Sign-In
+								</button>
+							</Link>
 						</main>
 					</div>
 				)}

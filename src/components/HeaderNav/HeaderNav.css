@@ -9,9 +9,10 @@
 .header-nav {
 	display: flex;
 	justify-content: space-between;
-	align-content: center;
+	align-items: center;
 	border-bottom: 2px solid var(--mainDarkBlueColor);
 	/* transition: top 0.6s; */
+	height: 56px;
 }
 
 .hide-nav {
@@ -20,16 +21,13 @@
 
 .title {
 	text-align: center;
-	color: var(--mainDarkBlueColor);
+	font-size: 1.8em;
+	color: var(--mainBlueColor);
+	margin-left: 40px;
 }
 
-.nav-buttons {
-	display: flex;
-	flex-direction: column;
-	/* position: fixed; */
-	/* right: 0px; */
-	margin-top: 15px;
-	margin-right: 0px;
+.sign-in {
+	background-color: black;
+	color: var(--mainTextBlueColor);
+	margin-right: -10px;
 }
-/* .side-bar {
-} */

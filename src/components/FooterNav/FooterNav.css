@@ -1,6 +1,5 @@
 .footer-nav {
 	border-top: 2px solid var(--mainDarkBlueColor);
-
 	position: fixed;
 	bottom: 0;
 	background-color: black;
@@ -11,11 +10,11 @@
 	align-items: center;
 	z-index: 100;
 }
-.footer-nav a {
-	font-size: 20px;
-	color: var(--mainDarkBlueColor);
+.bottom-nav-buttons {
+	color: var(--mainBlueColor);
+	margin: 0 35px 0 35px;
 }
 
-.addButton {
-	color: var(--mainRedColor);
+.footer-selected .bottom-nav-buttons {
+	color: var(--mainDarkBlueColor);
 }

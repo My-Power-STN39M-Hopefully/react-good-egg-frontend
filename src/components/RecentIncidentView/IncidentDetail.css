@@ -10,20 +10,28 @@
 
 .incidentDetail h2 {
 	font-size: 24px;
-	display: grid;
-	place-items: center;
+}
+
+.incidentLabel {
+	font-weight: 800;
+	color: var(--mainTextBlue);
 }
 
 .incidentDetail p {
-	color: white;
 	grid-column: 1 / span 2;
 }
 
-.incidentDetail ul {
+.incidentResult {
+	color: var(--mainBlueColor);
+	font-weight: 200;
+	margin-left: 15px;
+	grid-column: 1 / span 2;
+}
+.incidentResult li {
+	margin-left: -40px;
 	list-style: none;
 }
 
-/* .incidentDetail .badApple {
-	display: grid;
-	place-items: center;
-} */
+.incidentDetail .badApple {
+	margin-bottom: 20px;
+}

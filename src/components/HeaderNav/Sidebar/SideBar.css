@@ -13,14 +13,14 @@
 	width: 30px;
 	height: 25px;
 	left: 20px;
-	top: 15px;
+	top: 0px;
 }
 .bm-cross-button {
 	height: 24px;
 	width: 24px;
 }
 .bm-burger-bars {
-	background: var(--mainDarkBlueColor);
+	background: var(--mainBlueColor);
 }
 .bm-burger-bars-hover {
 	background: var(--mainDarkBlueColor);
@@ -31,17 +31,26 @@
 	border: solid 1px rgb(87, 85, 85);
 }
 .bm-menu {
-	background: rgb(12, 12, 12);
+	background: var(--mainDarkBlueColor);
 	padding-top: 0.5em;
 	text-align: center;
 	font-size: 2em;
-	color: white;
 }
 .bm-item-list {
-	color: white;
 	padding: 0.8em;
+}
+.bm-item {
+	color: var(--mainBlueColor);
+	margin-bottom: 40px;
+	outline: none;
 }
 
 .logout-button {
-	background: rgb(240, 98, 98);
+	border: 2px solid var(--mainRedColor);
+	color: red;
+	height: 60px;
+	width: 140px;
+	text-align: center;
+	margin-top: 140px;
+	/* outline: none;  COME BACK TO THIS!!*/
 }

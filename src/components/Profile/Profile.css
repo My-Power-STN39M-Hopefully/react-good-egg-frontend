@@ -10,11 +10,42 @@
 	border-radius: 3px;
 	width: 100%;
 } */
-.user-info {
-	display: flex;
-	flex-direction: column;
-	margin-left: 20px;
+
+.user-info h3 {
+	text-align: center;
+	margin-top: 10px;
+	font-size: 40px;
 }
 .user-info ul {
 	list-style-type: none;
+}
+.user-details {
+	text-align: center;
+	color: var(--mainBlueColor);
+	font-size: 23px;
+	font-weight: 200;
+}
+.edit-profile-button {
+	margin: 0 auto;
+	background: black;
+	color: var(--mainTextblue);
+	font-size: 17px;
+}
+.user-icon {
+	border-radius: 50%;
+	border: 1px solid var(--mainBlueColor);
+	height: 100px;
+	width: 100px;
+	background-color: var(--mainDarkBlueColor);
+	display: grid;
+	place-items: center;
+	font-size: 4em;
+	margin: auto;
+	margin-top: 76px;
+	color: var(--mainBlueColor);
+	font-weight: 200;
+}
+
+.user-details p {
+	margin-bottom: -1px;
 }

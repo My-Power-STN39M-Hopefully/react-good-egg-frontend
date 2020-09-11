@@ -14,7 +14,6 @@ class HeaderNav extends Component {
 	}
 
 	handleScroll = () => {
-		console.log(this.state);
 		const { prevScroll } = this.state;
 		const currentScrollPos = window.pageYOffset;
 		const visible = prevScroll > currentScrollPos;
@@ -25,14 +24,12 @@ class HeaderNav extends Component {
 		});
 	};
 	componentDidMount() {
-		console.log('tes');
 		window.addEventListener('scroll', this.handleScroll);
 		this.state.visible === true
 			? this.setState({ showClass: 'header' })
 			: this.setState({ showClass: 'hide-nav' });
 	}
 	componentWillUnmount() {
-		console.log('sminus');
 		window.removeEventListener('scroll', this.handleScroll);
 	}
 

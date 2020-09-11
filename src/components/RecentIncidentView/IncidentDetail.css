@@ -1,3 +1,29 @@
 .incidentDetail {
+	margin: 106px 20px 0px 20px;
 	padding: 20px;
+	border: 2px solid var(--mainDarkBlueColor);
+	border-radius: 7px;
+	background-color: var(--mainDivColor);
+	display: grid;
+	grid-template-columns: 120px 1fr;
 }
+
+.incidentDetail h2 {
+	font-size: 24px;
+	display: grid;
+	place-items: center;
+}
+
+.incidentDetail p {
+	color: white;
+	grid-column: 1 / span 2;
+}
+
+.incidentDetail ul {
+	list-style: none;
+}
+
+/* .incidentDetail .badApple {
+	display: grid;
+	place-items: center;
+} */

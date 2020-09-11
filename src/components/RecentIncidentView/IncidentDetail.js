@@ -22,17 +22,24 @@ class IncidentDetail extends Component {
 					<div className='goodEgg'>Good Egg</div>
 				)}
 				<h2>{result.category}</h2>
-				<p>Location: {result.location}</p>
-				<p>Date: {result.date}</p> <p>Time: {result.time}</p>
+				<p className='incidentLabel'>Date:</p>
+				<p>{result.date}</p>
+				<p className='incidentLabel'>Time: </p>
+				<p>{result.time}</p>
+				<p className='incidentLabel'>Location:</p>
+				<p> {result.location}</p>
 				{/* Officers Involved should be a link that brings us to officer details */}
-				<p>
-					Officer/s Involved:{' '}
-					<ul>
-						<li>{result.officers}</li>
-					</ul>
-				</p>
-				<p>Description: {result.description}</p>
-				<p>Made a formal complaint? {result.formal_complaint}</p>
+				<p className='incidentLabel'>Officer/s Involved: </p>
+				<ul>
+					<li>{result.officers}</li>
+				</ul>
+				<p className='incidentLabel'>Description:</p>{' '}
+				<p>{result.description}</p>
+				{result.formal_complaint ? (
+					<p>Made Formal Complaint</p>
+				) : (
+					<p>Has Not Made Formal Complaint</p>
+				)}
 			</div>
 		);
 	}

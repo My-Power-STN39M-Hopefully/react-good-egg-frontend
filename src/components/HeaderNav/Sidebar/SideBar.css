@@ -13,14 +13,14 @@
 	width: 30px;
 	height: 25px;
 	left: 20px;
-	top: 15px;
+	top: 0px;
 }
 .bm-cross-button {
 	height: 24px;
 	width: 24px;
 }
 .bm-burger-bars {
-	background: var(--mainDarkBlueColor);
+	background: var(--mainBlueColor);
 }
 .bm-burger-bars-hover {
 	background: var(--mainDarkBlueColor);

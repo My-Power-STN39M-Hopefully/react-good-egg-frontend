@@ -4,6 +4,8 @@
 	border-radius: 7px;
 	width: 100%;
 	background-color: var(--mainDivColor);
+	display: grid;
+	grid-template-columns: 120px 1fr;
 }
 
 /* .incidentSmall h3 {
@@ -12,16 +14,34 @@
 
 .incidentSmall p {
 	color: grey;
+	grid-column: 1 / span 2;
+}
+
+.incidentSmall h3 {
+	grid-column: 2 / span 1;
+	margin-bottom: 0px;
+	font-size: 24px;
+}
+
+.incidentSmall .date {
+	grid-column: 2 / span 1;
+	margin-top: -10px;
 }
 
 .badApple {
 	border: 2px solid var(--mainRedColor);
 	color: red;
-	display: inline;
+	display: grid;
+	place-items: center;
+	height: 40px;
+	width: 100px;
 }
 
 .goodEgg {
 	border: 2px solid var(--mainBlueColor);
 	color: var(--mainBlueColor);
-	display: inline;
+	display: grid;
+	place-items: center;
+	height: 40px;
+	width: 100px;
 }

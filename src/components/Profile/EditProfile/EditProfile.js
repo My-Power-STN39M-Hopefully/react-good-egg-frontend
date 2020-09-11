@@ -8,6 +8,11 @@ class EditProfile extends Component {
 	state = {
 		redirect: false,
 	};
+
+	componentDidMount() {
+		window.scrollTo(0, 0);
+	}
+
 	handleUpdate = (e) => {
 		e.preventDefault();
 		this.setState({ redirect: true });

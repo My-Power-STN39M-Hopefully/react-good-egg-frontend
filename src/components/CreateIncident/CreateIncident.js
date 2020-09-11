@@ -24,6 +24,10 @@ class CreateIncident extends Component {
 		};
 	}
 
+	componentDidMount() {
+		window.scrollTo(0, 0);
+	}
+
 	handleInputChange = (event) => {
 		if (
 			event.target.id === 'formal_complaint' ||

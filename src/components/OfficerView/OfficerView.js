@@ -6,6 +6,7 @@ import './OfficerView.css';
 function OfficerView(props) {
 	useEffect(() => {
 		props.officersHandler(officerData);
+		window.scrollTo(0, 0);
 	});
 
 	return (

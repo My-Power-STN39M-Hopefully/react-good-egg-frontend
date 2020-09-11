@@ -12,6 +12,10 @@ class EditIncident extends Component {
 		};
 	}
 
+	componentDidMount() {
+		window.scrollTo(0, 0);
+	}
+
 	setEditIncident = (incident) => {
 		this.setState({ editedIncident: incident });
 	};

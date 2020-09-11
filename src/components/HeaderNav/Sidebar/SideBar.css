@@ -9,7 +9,7 @@
 	color: grey;
 }
 .bm-burger-button {
-	position: fixed;
+	position: relative;
 	width: 30px;
 	height: 25px;
 	left: 20px;

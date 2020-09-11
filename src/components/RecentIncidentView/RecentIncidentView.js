@@ -1,8 +1,12 @@
 import { Route, Link, Redirect } from 'react-router-dom';
-import React from 'react';
+import React, { useEffect } from 'react';
 import './RecentIncidentView.css';
 
 function RecentIncidentView(props) {
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	});
+
 	return (
 		<Link to={'incidents/' + props.id}>
 			<div className='incidentSmall'>
@@ -13,7 +17,9 @@ function RecentIncidentView(props) {
 				)}
 				<h3>{props.category}</h3>
 				<p className='date'> {props.date}</p>
-				<p>{props.description}</p>
+
+				<p className='description'>{props.description}</p>
+
 				<p>Officer/s Involved: {props.officers}</p>
 			</div>
 		</Link>

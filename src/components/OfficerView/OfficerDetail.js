@@ -4,6 +4,10 @@ import RecentIncidentView from '../RecentIncidentView/RecentIncidentView';
 import './OfficerDetail.css';
 
 class OfficerDetail extends Component {
+	componentDidMount() {
+		window.scrollTo(0, 0);
+	}
+
 	render() {
 		// will be doing a fetch below to retrieve individual officer, waiting for database to go live
 		let result = {};

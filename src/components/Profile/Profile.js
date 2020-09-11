@@ -6,6 +6,7 @@ import './Profile.css';
 function Profile(props) {
 	useEffect(() => {
 		props.incidentsHandler(data);
+		window.scrollTo(0, 0);
 	});
 	//need logic for finding incidents for particular user
 

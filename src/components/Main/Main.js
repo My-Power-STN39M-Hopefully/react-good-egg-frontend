@@ -7,6 +7,7 @@ import './Main.css';
 function Main(props) {
 	useEffect(() => {
 		props.incidentsHandler(data);
+		window.scrollTo(0, 0);
 	});
 
 	return (

@@ -6,6 +6,8 @@
 	background-color: var(--mainDivColor);
 	display: grid;
 	grid-template-columns: 120px 1fr;
+	height: 200px;
+	text-overflow: '[...]';
 }
 
 /* .incidentSmall h3 {
@@ -15,6 +17,13 @@
 .incidentSmall p {
 	color: grey;
 	grid-column: 1 / span 2;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.description {
+	/* text-overflow: ellipsis; */
 }
 
 .incidentSmall h3 {

@@ -8,12 +8,30 @@ class EditIncident extends Component {
 	constructor() {
 		super();
 		this.state = {
-			editedIncident: '',
+			editedIncident: {},
 		};
 	}
 
+	setEditIncident = (incident) => {
+		this.setState({ editedIncident: incident });
+	};
+
 	handleInputChange = (event) => {
-		// this.setState({ editedIncident: result });
+		this.setEditIncident({
+			category: this.editedIncident.category,
+			officers: this.editedIncident.officers,
+			officer_description: this.editedIncident.officer_description,
+			description: this.editedIncident.description,
+			date: this.editedIncident.date,
+			time: this.editedIncident.time,
+			location: this.editedIncident.location,
+			formal_complaint: this.editedIncident.formal_complaint,
+			formal_complaint_number: this.editedIncident.formal_complaint_number,
+			witnesses_present: this.editedIncident.witnesses_present,
+			witnesses_information: this.editedIncident.witnesses_information,
+			private: this.editedIncident.private,
+			...{ [event.target.id]: event.target.value },
+		});
 	};
 
 	render() {

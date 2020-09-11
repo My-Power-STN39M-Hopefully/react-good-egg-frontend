@@ -8,17 +8,52 @@ class EditIncident extends Component {
 	constructor() {
 		super();
 		this.state = {
-			editedIncident: '',
+			editedIncident: {},
 		};
 	}
 
+	setEditIncident = (incident) => {
+		this.setState({ editedIncident: incident });
+	};
+
 	handleInputChange = (event) => {
-		// this.setState({ editedIncident: result });
+		const editIncident = this.state.editIncident;
+		this.setEditIncident({
+			category: editIncident.category,
+			officers: editIncident.officers,
+			officer_description: editIncident.officer_description,
+			description: editIncident.description,
+			date: editIncident.date,
+			time: editIncident.time,
+			location: editIncident.location,
+			formal_complaint: editIncident.formal_complaint,
+			formal_complaint_number: editIncident.formal_complaint_number,
+			witnesses_present: editIncident.witnesses_present,
+			witnesses_information: editIncident.witnesses_information,
+			private: editIncident.private,
+			...{ [event.target.id]: event.target.value },
+		});
+	};
+
+	handleSubmit = (event) => {
+		event.preventDefault();
+		const newIncident = this.state.editedIncident;
+		const url = `/incidents/edit/${newIncident.id}`;
+		// newIncident will be the updated object we sent in the PUT request.
+		//url endpoint may have to be adjusted to match backend.
+		//we can run put request and then redirect to profile.
+	};
+
+	deleteIncident = (event) => {
+		event.preventDefault();
+		const newIncident = this.state.editedIncident;
+		const url = `/incidents/${newIncident.id}`;
 	};
 
 	render() {
 		let result = {};
 		// will be doing a fetch below to retrieve individual incident, waiting for database to go live
+		// this will likely load on didmount to update editedIncident in state
 		for (let i = 0; i < this.props.incidents.length; i++) {
 			if (this.props.editIncidentId === this.props.incidents[i].id.toString()) {
 				result = this.props.incidents[i];
@@ -28,7 +63,7 @@ class EditIncident extends Component {
 		return (
 			<div className='create-form'>
 				<h1>Edit Incident Form</h1>
-				<Form className='incidentForm'>
+				<Form className='incidentForm' onSubmit={this.handleSubmit}>
 					<Form.Group controlId='category'>
 						<Form.Label>Category</Form.Label>
 						<Form.Control
@@ -178,8 +213,10 @@ class EditIncident extends Component {
 							onChange={this.handleInputChange}
 						/>
 					</Form.Group>
-					<button>Submit</button>
-					<button className='deleteButton'>Delete</button>
+					<button type='submit'>Submit</button>
+					<button className='deleteButton' onClick={this.deleteIncident}>
+						Delete
+					</button>
 				</Form>
 			</div>
 		);

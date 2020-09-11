@@ -1,5 +1,5 @@
 :root {
-	--mainDivColor: rgba(1, 46, 71, 0.7);
+	--mainDivColor: #022132;
 	--mainBlueColor: #b4def3;
 	--mainRedColor: #ff0100;
 	--mainDarkBlueColor: rgb(1, 46, 71);
@@ -27,6 +27,16 @@ h3 {
 	color: var(--mainBlueColor);
 }
 
-/* div {
-	background-color: #012e47;
-} */
+button {
+	background-color: var(--mainDarkBlueColor);
+	border: none;
+	color: rgba(0, 0, 0, 0.8);
+	width: 120px;
+	height: 40px;
+	/* border-radius: 6px; */
+}
+
+button:hover {
+	color: var(--mainBlueColor);
+	border: 2px solid var(--mainBlueColor);
+}

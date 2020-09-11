@@ -1,24 +1,77 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
 import SideBar from './Sidebar/SideBar';
 import './HeaderNav.css';
 
-function HeaderNav() {
-	return (
-		<div className='header'>
-			<main className='header-nav'>
-				<h1 className='title'>GoodEgg</h1>
-				<div className='nav-buttons'>
-					<Link to='/sign-in'>
-						<button type='submit' className='sign-in'>
-							Sign-In
-						</button>
-					</Link>
-				</div>
-			</main>
-			<SideBar className='side-bar' />
-		</div>
-	);
+class HeaderNav extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			prevScroll: window.pageYOffset,
+			visible: true,
+			showClass: 'show-nav',
+		};
+	}
+
+	handleScroll = () => {
+		console.log(this.state);
+		const { prevScroll } = this.state;
+		const currentScrollPos = window.pageYOffset;
+		const visible = prevScroll > currentScrollPos;
+
+		this.setState({
+			prevScroll: currentScrollPos,
+			visible,
+		});
+	};
+	componentDidMount() {
+		console.log('tes');
+		window.addEventListener('scroll', this.handleScroll);
+		this.state.visible === true
+			? this.setState({ showClass: 'header' })
+			: this.setState({ showClass: 'hide-nav' });
+	}
+	componentWillUnmount() {
+		console.log('sminus');
+		window.removeEventListener('scroll', this.handleScroll);
+	}
+
+	render() {
+		return (
+			<div>
+				{this.state.visible && (
+					<div className='header'>
+						<main className='header-nav'>
+							<SideBar className='side-bar' />
+							<h1 className='title'>GoodEgg</h1>
+							<div className='nav-buttons'>
+								<Link to='/sign-in'>
+									<button type='submit' className='sign-in'>
+										Sign-In
+									</button>
+								</Link>
+							</div>
+						</main>
+					</div>
+				)}
+				{!this.state.visible && (
+					<div className='hide-nav'>
+						<main className='header-nav'>
+							<SideBar className='side-bar' />
+							<h1 className='title'>GoodEgg</h1>
+							<div className='nav-buttons'>
+								<Link to='/sign-in'>
+									<button type='submit' className='sign-in'>
+										Sign-In
+									</button>
+								</Link>
+							</div>
+						</main>
+					</div>
+				)}
+			</div>
+		);
+	}
 }
 
 export default HeaderNav;

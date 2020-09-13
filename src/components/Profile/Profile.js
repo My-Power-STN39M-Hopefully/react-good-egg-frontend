@@ -2,28 +2,49 @@ import React, { useState, useEffect } from 'react';
 import data from '../../data.json';
 import { Link } from 'react-router-dom';
 import './Profile.css';
+import { GoodEggBackend } from '../../api/GoodEggBackend';
 
 function Profile(props) {
+	const [userData, setUserData] = useState({});
+	// const [firstName, setFirstName] = useState('');
+	// const [race, setRace] = useState('');
+	// const [gender, setGender] = useState('');
+	// const [nationality, setNationality] = useState('');
+	// const [city, setCity] = useState('');
+	// const [state, setState] = useState('');
+
 	useEffect(() => {
 		props.incidentsHandler(data);
 		window.scrollTo(0, 0);
+
+		GoodEggBackend()
+			.get('/user/rest-auth/user/', { withCredentials: true })
+			.then((response) => {
+				setUserData(response.data);
+
+				//Cookies.set('access_token', response.headers['Set-Cookie']);
+				// sessionStorage.setItem('activeEmail', this.state.email);
+				//window.location = '/';
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	});
 	//need logic for finding incidents for particular user
 
 	const handleEditClick = (event) => {
 		props.editIncidentHandler(event.target.id);
 	};
-
 	return (
 		<div className='profile'>
-			<div className='user-icon'>T</div>
+			<div className='user-icon'>{String(userData.first_name).charAt(0)}</div>
 			<header className='user-info'>
 				<div>
-					<h3 className='user-name'>Tabitha</h3>
+					<h3 className='user-name'>{`${userData.first_name} ${userData.last_name}`}</h3>
 					<div className='user-details'>
-						<p>American</p>
-						<p>White Female</p>
-						<p>Boston, MA</p>
+						<p>{userData.nationality}</p>
+						<p>{`${userData.race} ${userData.gender}`}</p>
+						<p>{`${userData.city}, ${userData.state}`}</p>
 						<Link to='/profile/edit'>
 							<button className='edit-profile-button'>Edit Profile</button>
 						</Link>

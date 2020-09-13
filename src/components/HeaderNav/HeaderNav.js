@@ -46,6 +46,7 @@ class HeaderNav extends Component {
 								className='side-bar'
 								userEmail={this.props.userEmail}
 								loginMessage={this.props.loginMessage}
+								link={this.state.link}
 							/>
 							<h1 className='title'>GoodEgg</h1>
 							<Link to={this.state.link}>

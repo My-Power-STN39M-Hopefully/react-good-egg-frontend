@@ -8,7 +8,7 @@ function RecentIncidentView(props) {
 	});
 
 	return (
-		<Link to={'incidents/' + props.id}>
+		<Link to={'incidents/' + props.id} incidents={props.incidents}>
 			<div className='incidentSmall'>
 				{props.bad_apple === true ? (
 					<div className='badApple'>Bad Apple</div>

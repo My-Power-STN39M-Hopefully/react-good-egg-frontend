@@ -4,6 +4,7 @@ import './IncidentDetail.css';
 
 class IncidentDetail extends Component {
 	render() {
+		console.log(this.props.incidents);
 		// will be doing a fetch below to retrieve individual incident, waiting for database to go live
 		let result = {};
 		for (let i = 0; i < this.props.incidents.length; i++) {

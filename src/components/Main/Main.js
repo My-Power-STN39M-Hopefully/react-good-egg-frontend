@@ -1,32 +1,51 @@
 import { Route, Link, Redirect } from 'react-router-dom';
 import RecentIncidentView from '../RecentIncidentView/RecentIncidentView';
 import data from '../../data.json';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import './Main.css';
+import { GoodEggBackend } from '../../api/GoodEggBackend';
 
-function Main(props) {
-	useEffect(() => {
-		props.incidentsHandler(data);
+class Main extends Component {
+	constructor() {
+		super();
+		this.state = {};
+	}
+	componentDidMount() {
 		window.scrollTo(0, 0);
-	});
+		GoodEggBackend()
+			.get('/incident/')
+			.then((response) => {
+				this.props.incidentsHandler(response.data);
+				//Cookies.set('access_token', response.headers['Set-Cookie']);
+				// sessionStorage.setItem('activeEmail', this.state.email);
+				//window.location = '/';
+				console.log(response.data);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
 
-	return (
-		<div className='incidentList'>
-			{props.incidents.map((incident) => {
-				return (
-					<RecentIncidentView
-						bad_apple={incident.bad_apple}
-						description={incident.description}
-						date={incident.date}
-						category={incident.category}
-						officers={incident.officers}
-						match={props.match}
-						id={incident.id}
-					/>
-				);
-			})}
-		</div>
-	);
+	render() {
+		return (
+			<div className='incidentList'>
+				{this.props.incidents.map((incident) => {
+					return (
+						<RecentIncidentView
+							bad_apple={incident.bad_apple}
+							description={incident.description}
+							date={incident.date}
+							category={incident.category}
+							officers={incident.officers}
+							match={this.props.match}
+							id={incident.id}
+							incidents={this.props.incidents}
+						/>
+					);
+				})}
+			</div>
+		);
+	}
 }
 
 export default Main;

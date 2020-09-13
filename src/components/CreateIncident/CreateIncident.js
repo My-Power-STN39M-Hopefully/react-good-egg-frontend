@@ -5,12 +5,13 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './CreateIncident.css';
 import { GoodEggBackend } from '../../api/GoodEggBackend';
+import { TypeUnderline } from 'react-bootstrap-icons';
 
 class CreateIncident extends Component {
 	constructor() {
 		super();
 		this.state = {
-			category: '',
+			category: 'Conduct Unbecoming',
 			officers_choices: [],
 			officers: [],
 			officer_description: '',
@@ -23,6 +24,8 @@ class CreateIncident extends Component {
 			witnesses_present: false,
 			witnesses_information: '',
 			private: false,
+			bad_apple: true,
+			unknown_officer_selected: false,
 		};
 
 		this.handleInputChange = this.handleInputChange.bind(this);
@@ -41,21 +44,27 @@ class CreateIncident extends Component {
 		if (
 			event.target.id === 'formal_complaint' ||
 			event.target.id === 'witnesses_present' ||
-			event.target.id === 'private'
+			event.target.id === 'private' ||
+			event.target.id === 'bad_apple'
 		) {
-			event.target.value === 'on'
-				? (event.target.value = true)
-				: (event.target.value = false);
+			this.setState({ [event.target.id]: event.target.checked });
+		} else {
+			this.setState({ [event.target.id]: event.target.value });
 		}
-		this.setState({ [event.target.id]: event.target.value });
 	};
 
 	handleOfficerSelect = (event) => {
 		let options = event.target.options;
 		let officers = [];
+		this.setState({ unknown_officer_selected: false });
 		for (let i = 0, l = options.length; i < l; i++) {
 			if (options[i].selected) {
-				officers.push(parseInt(options[i].value));
+				let selection = parseInt(options[i].value);
+				if (selection > -1) {
+					officers.push(selection);
+				} else {
+					this.setState({ unknown_officer_selected: true });
+				}
 			}
 		}
 		this.setState({ officers: officers });
@@ -63,38 +72,26 @@ class CreateIncident extends Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault();
-		
+		const newIncident = {
+			category: this.state.category,
+			officers: this.state.officers,
+			officer_description: this.state.officer_description,
+			description: this.state.description,
+			date: this.state.date,
+			time: this.state.time,
+			location: this.state.location,
+			formal_complaint: this.state.formal_complaint,
+			formal_complaint_number: this.state.formal_complaint_number,
+			witnesses_present: this.state.witnesses_present,
+			witnesses_information: this.state.witnesses_information,
+			private: this.state.private,
+		};
 		GoodEggBackend()
-			.get('user/rest-auth/user', { withCredentials: "include" })
-			.then((user) => {
-				const newIncident = {
-					category: this.state.category,
-					officers: this.state.officers,
-					officer_description: this.state.officer_description,
-					description: this.state.description,
-					date: this.state.date,
-					time: this.state.time,
-					location: this.state.location,
-					formal_complaint: this.state.formal_complaint,
-					formal_complaint_number: this.state.formal_complaint_number,
-					witnesses_present: this.state.witnesses_present,
-					witnesses_information: this.state.witnesses_information,
-					private: this.state.private,
-					user: user.id,
-				};
-				console.log(user);
-				GoodEggBackend()
-					.post('incident/', newIncident)
-					.then((response) => {
-						console.log(response.data);
-					})
-					.catch((error) => {});
+			.post('incident/', newIncident, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
 			})
-			.catch((error) => {
-				console.log(error);
-			});
-		
-		
+			.catch((error) => {});
 	};
 
 	render() {
@@ -106,9 +103,9 @@ class CreateIncident extends Component {
 						<Form.Label>Category</Form.Label>
 						<Form.Control
 							as='select'
-							defaultValue='Category...'
+							defaultValue='Conduct Unbecoming'
 							onChange={this.handleInputChange}>
-							<option>Choose...</option>
+							<option>Conduct Unbecoming</option>
 							<option>Conduct Unbecoming (Off Duty)</option>
 							<option>Criminal Misconduct</option>
 							<option>Domestic</option>
@@ -129,10 +126,21 @@ class CreateIncident extends Component {
 						<Form.Group controlId='category_description'>
 							<Form.Control
 								type='text'
+								name='category'
 								placeholder='Please Enter New Category'
 								onChange={this.handleInputChange}></Form.Control>
 						</Form.Group>
 					)}
+
+					<Form.Group controlId='bad_apple'>
+						<Form.Check
+							type='checkbox'
+							checked={this.state.bad_apple}
+							onChange={this.handleInputChange}
+							name='bad_apple'
+							label='This was a negative experience'
+						/>
+					</Form.Group>
 
 					<Form.Group controlId='officers'>
 						<Form.Label>Officer</Form.Label>
@@ -140,11 +148,11 @@ class CreateIncident extends Component {
 							as='select'
 							multiple
 							onChange={this.handleOfficerSelect}>
-							<option>Choose...</option>
-							<option>Unknown</option>
-							{this.state.officers_choices.map((o) => {
+							<option value='-1'>Choose...</option>
+							<option value='-1'>Unknown</option>
+							{this.state.officers_choices.map((o, i) => {
 								return (
-									<option value={o.id}>
+									<option key={`officer-${i}`} value={o.id}>
 										Badge #: {o.badge_number}-{o.first_name} {o.last_name}
 									</option>
 								);
@@ -152,20 +160,25 @@ class CreateIncident extends Component {
 						</Form.Control>
 					</Form.Group>
 
-					{this.state.officers === 'Unknown' && (
-						<Form.Group controlId='officer_description'>
-							<Form.Control
-								type='text'
-								placeholder='Please Enter Description of Officer'
-								onChange={this.handleInputChange}
-							/>
-						</Form.Group>
-					)}
+					<Form.Group controlId='officer_description'>
+						<Form.Label>Officer Description</Form.Label>
+						<Form.Control
+							as='textarea'
+							required={
+								this.state.unknown_officer_selected ||
+								this.state.officers.length === 0
+							}
+							placeholder='Description of officer, required if unknown officer chosen.'
+							rows='3'
+							onChange={this.handleInputChange}
+						/>
+					</Form.Group>
 
 					<Form.Group controlId='description'>
 						<Form.Label>Incident Description</Form.Label>
 						<Form.Control
 							as='textarea'
+							required
 							rows='3'
 							onChange={this.handleInputChange}
 						/>
@@ -174,12 +187,20 @@ class CreateIncident extends Component {
 					<Form.Row>
 						<Form.Group as={Col} controlId='date'>
 							<Form.Label>Date</Form.Label>
-							<Form.Control type='date' onChange={this.handleInputChange} />
+							<Form.Control
+								type='date'
+								required
+								onChange={this.handleInputChange}
+							/>
 						</Form.Group>
 
 						<Form.Group as={Col} controlId='time'>
 							<Form.Label>Time</Form.Label>
-							<Form.Control type='time' onChange={this.handleInputChange} />
+							<Form.Control
+								type='time'
+								required
+								onChange={this.handleInputChange}
+							/>
 						</Form.Group>
 					</Form.Row>
 
@@ -196,6 +217,7 @@ class CreateIncident extends Component {
 						<Form.Check
 							type='checkbox'
 							label='I filed a formal police complaint'
+							checked={this.state.formal_complaint}
 							onChange={this.handleInputChange}
 						/>
 						<Form.Group controlId='formal_complaint_number'>
@@ -209,6 +231,7 @@ class CreateIncident extends Component {
 					<Form.Group controlId='witnesses_present'>
 						<Form.Check
 							type='checkbox'
+							checked={this.state.witnesses_present}
 							label='There were witnesses'
 							onChange={this.handleInputChange}
 						/>
@@ -224,6 +247,7 @@ class CreateIncident extends Component {
 					<Form.Group controlId='private'>
 						<Form.Check
 							type='checkbox'
+							checked={this.state.private}
 							label='Keep Private'
 							onChange={this.handleInputChange}
 						/>

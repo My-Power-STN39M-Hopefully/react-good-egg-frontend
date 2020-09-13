@@ -52,8 +52,6 @@ class SignUp extends Component {
 				})
 				.then((response) => {
 					console.log(response);
-					//Cookies.set('access_token', response.headers['Set-Cookie']);
-					//window.location = '/';
 				})
 				.catch((error) => {
 					this.setError();

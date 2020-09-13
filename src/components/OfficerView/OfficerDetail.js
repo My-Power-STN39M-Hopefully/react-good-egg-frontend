@@ -8,6 +8,7 @@ class OfficerDetail extends Component {
 		super();
 		this.state = {
 			officerDetail: {},
+			officerIncidents: [],
 		};
 	}
 
@@ -17,6 +18,22 @@ class OfficerDetail extends Component {
 			.get(`officer/${this.props.match.params.id}`)
 			.then((response) => {
 				this.setState({ officerDetail: response.data });
+			})
+			.catch((error) => {
+				console.log('error');
+			});
+		GoodEggBackend()
+			.get('incident/')
+			.then((response) => {
+				let incidents = [];
+				response.data.map((incident) => {
+					if (
+						incident.officers.includes(parseInt(this.props.match.params.id))
+					) {
+						incidents.push(incident);
+					}
+				});
+				this.setState({ officerIncidents: incidents });
 			})
 			.catch((error) => {
 				console.log('error');
@@ -58,7 +75,7 @@ class OfficerDetail extends Component {
 					<h2> Incidents: </h2>
 
 					{/* This will be mapping over the date from fetch for the incidents that match the officer */}
-					{this.props.incidents.map((incident) => {
+					{this.state.officerIncidents.map((incident) => {
 						return (
 							<RecentIncidentView
 								description={incident.description}

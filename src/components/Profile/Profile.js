@@ -20,7 +20,7 @@ function Profile(props) {
 		GoodEggBackend()
 			.get('/user/rest-auth/user/', { withCredentials: true })
 			.then((response) => {
-				setUserData(response.data);
+				return setUserData(response.data);
 
 				//Cookies.set('access_token', response.headers['Set-Cookie']);
 				// sessionStorage.setItem('activeEmail', this.state.email);
@@ -32,12 +32,12 @@ function Profile(props) {
 		GoodEggBackend()
 			.get('/incident', { user: userData.id })
 			.then((response) => {
-				setUserIncidents(response.data);
+				return setUserIncidents(response.data);
 			})
 			.catch((error) => {
 				console.log(error);
 			});
-	});
+	}, [userData.id]);
 
 	const handleEditClick = (event) => {
 		props.editIncidentHandler(event.target.id);

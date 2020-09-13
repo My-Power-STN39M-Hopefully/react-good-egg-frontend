@@ -62,7 +62,7 @@ function Profile(props) {
 				{/* placeholder until we get signUp-form and signIn-form operating with api */}
 				{userIncidents.map((incident) => {
 					return (
-						<div>
+						<Link to={'incidents/' + incident.id}>
 							<div className='incidentSmall'>
 								{incident.bad_apple === true ? (
 									<div className='badApple'>Bad Apple</div>
@@ -82,7 +82,7 @@ function Profile(props) {
 									</button>
 								</Link>
 							</div>
-						</div>
+						</Link>
 					);
 				})}
 			</main>

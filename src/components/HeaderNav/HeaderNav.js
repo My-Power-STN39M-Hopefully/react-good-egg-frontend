@@ -42,7 +42,11 @@ class HeaderNav extends Component {
 				{this.state.visible && (
 					<div className='header'>
 						<main className='header-nav'>
-							<SideBar className='side-bar' userEmail={this.props.userEmail} />
+							<SideBar
+								className='side-bar'
+								userEmail={this.props.userEmail}
+								loginMessage={this.props.loginMessage}
+							/>
 							<h1 className='title'>GoodEgg</h1>
 							<Link to={this.state.link}>
 								<button type='submit' className='sign-in'>

@@ -6,7 +6,7 @@ import { GoodEggBackend } from '../../api/GoodEggBackend';
 
 function Profile(props) {
 	const [userData, setUserData] = useState({});
-	// const [firstName, setFirstName] = useState('');
+	const [userIncidents, setUserIncidents] = useState([]);
 	// const [race, setRace] = useState('');
 	// const [gender, setGender] = useState('');
 	// const [nationality, setNationality] = useState('');
@@ -14,7 +14,7 @@ function Profile(props) {
 	// const [state, setState] = useState('');
 
 	useEffect(() => {
-		props.incidentsHandler(data);
+		// props.incidentsHandler(data);
 		window.scrollTo(0, 0);
 
 		GoodEggBackend()
@@ -29,8 +29,15 @@ function Profile(props) {
 			.catch((error) => {
 				console.log(error);
 			});
+		GoodEggBackend()
+			.get('/incident', { user: userData.id })
+			.then((response) => {
+				setUserIncidents(response.data);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	});
-	//need logic for finding incidents for particular user
 
 	const handleEditClick = (event) => {
 		props.editIncidentHandler(event.target.id);
@@ -53,7 +60,7 @@ function Profile(props) {
 			</header>
 			<main className='incidentList'>
 				{/* placeholder until we get signUp-form and signIn-form operating with api */}
-				{props.incidents.map((incident) => {
+				{userIncidents.map((incident) => {
 					return (
 						<div>
 							<div className='incidentSmall'>

@@ -13,6 +13,7 @@ import React, { useState, useEffect } from 'react';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import EditProfile from './components/Profile/EditProfile/EditProfile';
+import { ConeStriped } from 'react-bootstrap-icons';
 
 function App(props) {
 	const [incidents, setIncidents] = useState([]);
@@ -23,6 +24,8 @@ function App(props) {
 	const [editIncidentId, setEditIncident] = useState('');
 
 	const [loggedIn, setLoggedIn] = useState(false);
+
+	const [userEmail, setUserEmail] = useState('Sign-In');
 
 	const editIncidentHandler = (incidentId) => {
 		setEditIncident(incidentId);
@@ -45,10 +48,15 @@ function App(props) {
 		setLoggedIn(!loggedIn);
 	};
 
+	const userEmailHandler = (email) => {
+		console.log('email');
+		setUserEmail(email);
+	};
+
 	return (
 		<div className='main'>
 			<main>
-				<HeaderNav />
+				<HeaderNav userEmail={userEmail} />
 				{(props.location.pathname === '/' ||
 					props.location.pathname === '/officers') && (
 					<div className='toggleIncidentOfficer'>
@@ -146,7 +154,11 @@ function App(props) {
 					path='/sign-in'
 					render={() => {
 						return (
-							<SignIn loggedInHandler={loggedInHandler} loggedIn={loggedIn} />
+							<SignIn
+								loggedInHandler={loggedInHandler}
+								loggedIn={loggedIn}
+								userEmailHandler={userEmailHandler}
+							/>
 						);
 					}}
 				/>

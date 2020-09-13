@@ -28,6 +28,7 @@ class SignIn extends Component {
 	};
 	handleLoggedIn = () => {
 		this.props.loggedInHandler();
+		this.props.userEmailHandler(this.state.email);
 	};
 
 	handleSubmit = (event) => {
@@ -47,7 +48,7 @@ class SignIn extends Component {
 					//Cookies.set('access_token', response.headers['Set-Cookie']);
 					sessionStorage.setItem('activeEmail', this.state.email);
 					//window.location = '/';
-					this.props.loggedInHandler();
+					this.handleLoggedIn();
 				})
 				.catch((error) => {
 					this.setError();

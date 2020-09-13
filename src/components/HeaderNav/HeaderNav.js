@@ -36,7 +36,6 @@ class HeaderNav extends Component {
 	}
 
 	render() {
-		console.log(Cookies.result);
 		return (
 			<div>
 				{this.state.visible && (

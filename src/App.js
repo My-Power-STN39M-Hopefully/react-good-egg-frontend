@@ -22,6 +22,8 @@ function App(props) {
 
 	const [editIncidentId, setEditIncident] = useState('');
 
+	const [loggedIn, setLoggedIn] = useState(false);
+
 	const editIncidentHandler = (incidentId) => {
 		setEditIncident(incidentId);
 	};
@@ -36,6 +38,11 @@ function App(props) {
 
 	const usersHandler = (users) => {
 		setUsers(users);
+	};
+
+	const loggedInHandler = () => {
+		console.log('hello');
+		setLoggedIn(!loggedIn);
 	};
 
 	return (
@@ -135,7 +142,14 @@ function App(props) {
 						);
 					}}
 				/>
-				<Route path='/sign-in' component={SignIn} />
+				<Route
+					path='/sign-in'
+					render={() => {
+						return (
+							<SignIn loggedInHandler={loggedInHandler} loggedIn={loggedIn} />
+						);
+					}}
+				/>
 				<Route path='/sign-up' component={SignUp} />
 				<FooterNav />
 				<Route path='/profile/edit' component={EditProfile} />

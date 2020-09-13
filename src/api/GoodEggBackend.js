@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 function getLocalBackendUrl() {
 	return process.env.REACT_APP_RUN_LOCAL_CONNECT_DEV === true
@@ -16,7 +17,7 @@ function GoodEggBackend() {
 		baseURL: 'http://localhost:8000',
 		headers: {
 			'Content-Type': 'application/json',
-			//"withCredentials": true,
+			'X-CSRFToken': Cookies.get('csrftoken'),
 		},
 	});
 }

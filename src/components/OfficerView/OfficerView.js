@@ -5,7 +5,17 @@ import './OfficerView.css';
 
 function OfficerView(props) {
 	useEffect(() => {
-		props.officersHandler(officerData);
+		const url =
+			'http://ec2-18-224-153-210.us-east-2.compute.amazonaws.com:8000/officers/apples-and-eggs';
+		fetch(url)
+			.then((response) => response.json())
+			.then((response) => {
+				props.officersHandler(response.bad_apples.concat(response.good_eggs));
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+
 		window.scrollTo(0, 0);
 	});
 

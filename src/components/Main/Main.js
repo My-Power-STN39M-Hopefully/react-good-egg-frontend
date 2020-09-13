@@ -1,7 +1,6 @@
-import { Route, Link, Redirect } from 'react-router-dom';
 import RecentIncidentView from '../RecentIncidentView/RecentIncidentView';
 import data from '../../data.json';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './Main.css';
 
 function Main(props) {

@@ -13,12 +13,11 @@ const backendUrl =
 		: process.env.REACT_APP_BACKEND_URL;
 
 function GoodEggBackend() {
-	console.log('backendUrl: ' + backendUrl);
 	return axios.create({
 		baseURL: backendUrl,
 		headers: {
 			'Content-Type': 'application/json',
-			'X-CSRFToken': Cookies.get('csrftoken'),
+			'x-csrftoken': Cookies.get('csrftoken'),
 		},
 	});
 }

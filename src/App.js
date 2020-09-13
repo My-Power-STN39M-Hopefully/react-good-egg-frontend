@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, NavLink, Link, Redirect, withRouter } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import Main from './components/Main/Main';
 import CreateIncident from './components/CreateIncident/CreateIncident';
 import FooterNav from './components/FooterNav/FooterNav';
@@ -9,7 +9,7 @@ import OfficerDetail from './components/OfficerView/OfficerDetail';
 import Profile from './components/Profile/Profile';
 import EditIncident from './components/Profile/EditIncident';
 import IncidentDetail from './components/RecentIncidentView/IncidentDetail';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import EditProfile from './components/Profile/EditProfile/EditProfile';

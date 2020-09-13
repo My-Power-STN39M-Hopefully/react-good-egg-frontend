@@ -41,9 +41,9 @@ class SideBar extends Component {
 						About
 					</Link>
 					{/* <a href='/search'>Search</a> */}
-					<div>
+					<Link to={this.props.link}>
 						<button className='logout-button'>{this.props.loginMessage}</button>
-					</div>
+					</Link>
 				</Menu>
 			</div>
 		);

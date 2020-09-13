@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Route, Link, Redirect } from 'react-router-dom';
-import officerData from '../../officerData.json';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './OfficerView.css';
 
 function OfficerView(props) {

@@ -1,7 +1,5 @@
-import { Route, Link, Redirect } from 'react-router-dom';
 import RecentIncidentView from '../RecentIncidentView/RecentIncidentView';
-import data from '../../data.json';
-import React, { useState, useEffect, Component } from 'react';
+import React, { Component } from 'react';
 import './Main.css';
 import { GoodEggBackend } from '../../api/GoodEggBackend';
 

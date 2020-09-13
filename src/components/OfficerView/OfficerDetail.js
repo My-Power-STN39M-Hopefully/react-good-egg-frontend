@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Route, Link, Redirect } from 'react-router-dom';
 import RecentIncidentView from '../RecentIncidentView/RecentIncidentView';
 import './OfficerDetail.css';
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Route, Link, Redirect } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import './EditIncident.css';
@@ -41,8 +40,8 @@ class EditIncident extends Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault();
-		const newIncident = this.state.editedIncident;
-		const url = `/incidents/edit/${newIncident.id}`;
+		//const newIncident = this.state.editedIncident;
+		//const url = `/incidents/edit/${newIncident.id}`;
 		// newIncident will be the updated object we sent in the PUT request.
 		//url endpoint may have to be adjusted to match backend.
 		//we can run put request and then redirect to profile.
@@ -50,8 +49,7 @@ class EditIncident extends Component {
 
 	deleteIncident = (event) => {
 		event.preventDefault();
-		const newIncident = this.state.editedIncident;
-		const url = `/incidents/${newIncident.id}`;
+		//const newIncident = this.state.editedIncident;
 	};
 
 	render() {

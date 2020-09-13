@@ -1,7 +1,7 @@
 import React from 'react';
-import { Route, Link, Redirect, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './FooterNav.css';
-import { PlusSquare, Person, HouseDoor, House } from 'react-bootstrap-icons';
+import { PlusSquare, Person, HouseDoor } from 'react-bootstrap-icons';
 
 function FooterNav(props) {
 	return (

@@ -9,7 +9,7 @@ class SignIn extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			username: undefined,
+			email: undefined,
 			password: undefined,
 			error: false,
 			errorMessage: undefined,
@@ -28,16 +28,21 @@ class SignIn extends Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault();
-		if (this.state.username && this.state.password) {
+		if (this.state.email && this.state.password) {
 			GoodEggBackend()
-				.post('user/signin/', {
-					username: this.state.username,
-					password: this.state.password,
-				})
+				.post(
+					'user/rest-auth/login/',
+					{
+						email: this.state.email,
+						password: this.state.password,
+					},
+					{ withCredentials: true }
+				)
 				.then((response) => {
-					sessionStorage.setItem('token', response.data.token);
-					sessionStorage.setItem('activeUsername', this.state.username);
-					window.location = '/';
+					console.log(response);
+					//Cookies.set('access_token', response.headers['Set-Cookie']);
+					sessionStorage.setItem('activeEmail', this.state.email);
+					//window.location = '/';
 				})
 				.catch((error) => {
 					this.setError();
@@ -51,12 +56,12 @@ class SignIn extends Component {
 		return (
 			<Form className='sign-in-form'>
 				<Form.Group controlId='formBasicEmail'>
-					<Form.Label>Username</Form.Label>
+					<Form.Label>Email</Form.Label>
 					<Form.Control
 						type='text'
-						placeholder='Enter Username'
+						placeholder='Enter Email'
 						onChange={this.handleChange}
-						name='username'
+						name='email'
 					/>
 				</Form.Group>
 

@@ -4,13 +4,15 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './CreateIncident.css';
+import { GoodEggBackend } from '../../api/GoodEggBackend';
 
 class CreateIncident extends Component {
 	constructor() {
 		super();
 		this.state = {
 			category: '',
-			officers: '',
+			officers_choices: [],
+			officers: [],
 			officer_description: '',
 			description: '',
 			date: '',
@@ -22,10 +24,17 @@ class CreateIncident extends Component {
 			witnesses_information: '',
 			private: false,
 		};
+
+		this.handleInputChange = this.handleInputChange.bind(this);
 	}
 
 	componentDidMount() {
-		window.scrollTo(0, 0);
+		GoodEggBackend()
+			.get('officer')
+			.then((response) => {
+				this.setState({ officers_choices: response.data });
+			})
+			.catch((error) => {});
 	}
 
 	handleInputChange = (event) => {
@@ -41,22 +50,51 @@ class CreateIncident extends Component {
 		this.setState({ [event.target.id]: event.target.value });
 	};
 
+	handleOfficerSelect = (event) => {
+		let options = event.target.options;
+		let officers = [];
+		for (let i = 0, l = options.length; i < l; i++) {
+			if (options[i].selected) {
+				officers.push(parseInt(options[i].value));
+			}
+		}
+		this.setState({ officers: officers });
+	};
+
 	handleSubmit = (event) => {
 		event.preventDefault();
-		const newIncident = {
-			category: this.state.category,
-			officers: this.state.officers,
-			officer_description: this.state.officer_description,
-			description: this.state.description,
-			date: this.state.date,
-			time: this.state.time,
-			location: this.state.location,
-			formal_complaint: this.state.formal_complaint,
-			formal_complaint_number: this.state.formal_complaint_number,
-			witnesses_present: this.state.witnesses_present,
-			witnesses_information: this.state.witnesses_information,
-			private: this.state.private,
-		};
+		
+		GoodEggBackend()
+			.get('user/rest-auth/user', { withCredentials: "include" })
+			.then((user) => {
+				const newIncident = {
+					category: this.state.category,
+					officers: this.state.officers,
+					officer_description: this.state.officer_description,
+					description: this.state.description,
+					date: this.state.date,
+					time: this.state.time,
+					location: this.state.location,
+					formal_complaint: this.state.formal_complaint,
+					formal_complaint_number: this.state.formal_complaint_number,
+					witnesses_present: this.state.witnesses_present,
+					witnesses_information: this.state.witnesses_information,
+					private: this.state.private,
+					user: user.id,
+				};
+				console.log(user);
+				GoodEggBackend()
+					.post('incident/', newIncident)
+					.then((response) => {
+						console.log(response.data);
+					})
+					.catch((error) => {});
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+		
+		
 	};
 
 	render() {
@@ -100,14 +138,17 @@ class CreateIncident extends Component {
 						<Form.Label>Officer</Form.Label>
 						<Form.Control
 							as='select'
-							defaultValue='Choose...'
-							onChange={this.handleInputChange}>
+							multiple
+							onChange={this.handleOfficerSelect}>
 							<option>Choose...</option>
 							<option>Unknown</option>
-							<option>John Smith</option>
-							<option>Robert Jend</option>
-							<option>Daniel Brooks</option>
-							<option>John Martinez</option>
+							{this.state.officers_choices.map((o) => {
+								return (
+									<option value={o.id}>
+										Badge #: {o.badge_number}-{o.first_name} {o.last_name}
+									</option>
+								);
+							})}
 						</Form.Control>
 					</Form.Group>
 

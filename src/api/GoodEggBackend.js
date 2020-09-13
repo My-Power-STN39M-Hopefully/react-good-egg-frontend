@@ -6,15 +6,17 @@ function getLocalBackendUrl() {
 		: 'https://localhost:8000';
 }
 
-const backendUrl = process.env.REACT_APP_IS_LOCAL === true
-	? getLocalBackendUrl()
-	: process.env.REACT_APP_BACKEND_URL;
+const backendUrl =
+	process.env.REACT_APP_IS_LOCAL === true
+		? getLocalBackendUrl()
+		: process.env.REACT_APP_BACKEND_URL;
 
 function GoodEggBackend() {
 	return axios.create({
 		baseURL: 'http://localhost:8000',
 		headers: {
-			Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+			'Content-Type': 'application/json',
+			//"withCredentials": true,
 		},
 	});
 }

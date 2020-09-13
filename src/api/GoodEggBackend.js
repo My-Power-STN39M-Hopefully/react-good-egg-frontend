@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 function getLocalBackendUrl() {
 	return JSON.parse(process.env.REACT_APP_RUN_LOCAL_CONNECT_DEV.toLowerCase())
 		? process.env.REACT_APP_DEV_ENDPOINT
-		: 'https://localhost:8000';
+		: 'http://localhost:8000';
 }
 
 const backendUrl =

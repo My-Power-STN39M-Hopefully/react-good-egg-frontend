@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
 import SideBar from './Sidebar/SideBar';
 import './HeaderNav.css';
+import Cookies from 'js-cookie';
 
 class HeaderNav extends Component {
 	constructor(props) {
@@ -10,6 +11,7 @@ class HeaderNav extends Component {
 			prevScroll: window.pageYOffset,
 			visible: true,
 			showClass: 'show-nav',
+			link: '/sign-in',
 		};
 	}
 
@@ -40,11 +42,15 @@ class HeaderNav extends Component {
 				{this.state.visible && (
 					<div className='header'>
 						<main className='header-nav'>
-							<SideBar className='side-bar' />
+							<SideBar
+								className='side-bar'
+								userEmail={this.props.userEmail}
+								loginMessage={this.props.loginMessage}
+							/>
 							<h1 className='title'>GoodEgg</h1>
-							<Link to='/sign-in'>
+							<Link to={this.state.link}>
 								<button type='submit' className='sign-in'>
-									Sign-In
+									{this.props.userEmail}
 								</button>
 							</Link>
 						</main>
@@ -56,10 +62,8 @@ class HeaderNav extends Component {
 							<SideBar className='side-bar' />
 							<h1 className='title'>GoodEgg</h1>
 							<div className='nav-buttons'>
-								<Link to='/sign-in'>
-									<button type='submit' className='sign-in'>
-										Sign-In
-									</button>
+								<Link to='/sign-in' className='sign-in'>
+									{this.props.userEmail}
 								</Link>
 							</div>
 						</main>

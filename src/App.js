@@ -13,14 +13,18 @@ import React, { useState, useEffect } from 'react';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import EditProfile from './components/Profile/EditProfile/EditProfile';
+import { ConeStriped } from 'react-bootstrap-icons';
 
 function App(props) {
 	const [incidents, setIncidents] = useState([]);
 	const [officers, setOfficers] = useState([]);
-
 	const [users, setUsers] = useState([]);
-
 	const [editIncidentId, setEditIncident] = useState('');
+	const [loggedIn, setLoggedIn] = useState(false);
+	const [userEmail, setUserEmail] = useState('Sign-In');
+	const [loginMessage, setLoginMessage] = useState('Sign-In');
+	const [createPath, setCreatePath] = useState('/sign-in');
+	const [profilePath, setProfilePath] = useState('/sign-in');
 
 	const editIncidentHandler = (incidentId) => {
 		setEditIncident(incidentId);
@@ -38,10 +42,25 @@ function App(props) {
 		setUsers(users);
 	};
 
+	const loggedInHandler = () => {
+		setLoggedIn(!loggedIn);
+		setLoginMessage('Logout');
+		setCreatePath('/incidents/new');
+		setProfilePath('/profile');
+	};
+
+	const userEmailHandler = (email) => {
+		setUserEmail(email);
+	};
+
 	return (
 		<div className='main'>
 			<main>
-				<HeaderNav />
+				<HeaderNav
+					userEmail={userEmail}
+					loggedIn={loggedIn}
+					loginMessage={loginMessage}
+				/>
 				{(props.location.pathname === '/' ||
 					props.location.pathname === '/officers') && (
 					<div className='toggleIncidentOfficer'>
@@ -135,9 +154,20 @@ function App(props) {
 						);
 					}}
 				/>
-				<Route path='/sign-in' component={SignIn} />
+				<Route
+					path='/sign-in'
+					render={() => {
+						return (
+							<SignIn
+								loggedInHandler={loggedInHandler}
+								loggedIn={loggedIn}
+								userEmailHandler={userEmailHandler}
+							/>
+						);
+					}}
+				/>
 				<Route path='/sign-up' component={SignUp} />
-				<FooterNav />
+				<FooterNav createPath={createPath} profilePath={profilePath} />
 				<Route path='/profile/edit' component={EditProfile} />
 			</main>
 		</div>

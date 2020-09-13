@@ -13,7 +13,6 @@ import React, { useState } from 'react';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import EditProfile from './components/Profile/EditProfile/EditProfile';
-import { ConeStriped } from 'react-bootstrap-icons';
 
 function App(props) {
 	const [incidents, setIncidents] = useState([]);

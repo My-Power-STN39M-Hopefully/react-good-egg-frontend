@@ -1,7 +1,5 @@
 import RecentIncidentView from '../RecentIncidentView/RecentIncidentView';
-import data from '../../data.json';
-import React, { useEffect, Component } from 'react';
-elopment
+import React, { Component } from 'react';
 import './Main.css';
 import { GoodEggBackend } from '../../api/GoodEggBackend';
 

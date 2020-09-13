@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import data from '../../data.json';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Profile.css';
 import { GoodEggBackend } from '../../api/GoodEggBackend';

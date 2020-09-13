@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import SignUp from '../SignUp/SignUp';
+import { Link, Redirect } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import './SignIn.css';
 import { GoodEggBackend } from '../../api/GoodEggBackend';
-import RecentIncidentView from '../RecentIncidentView/RecentIncidentView';
 
 class SignIn extends Component {
 	constructor(props) {

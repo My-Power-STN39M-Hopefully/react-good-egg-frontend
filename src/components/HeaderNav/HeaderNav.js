@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import SideBar from './Sidebar/SideBar';
 import './HeaderNav.css';
-import Cookies from 'js-cookie';
 
 class HeaderNav extends Component {
 	constructor(props) {

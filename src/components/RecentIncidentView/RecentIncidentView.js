@@ -20,7 +20,7 @@ function RecentIncidentView(props) {
 
 				<p className='description'>{props.description}</p>
 
-				<p>Officer/s Involved: {props.officers}</p>
+				<p>Officer(s) Involved: {props.officers}</p>
 			</div>
 		</Link>
 	);

@@ -30,10 +30,19 @@ function Profile(props) {
 				console.log(error);
 			});
 		GoodEggBackend()
-			.get('/incident', { user: userData.id })
+			.get(`/incident`)
 			.then((response) => {
-				return setUserIncidents(response.data);
+				let incidents = [];
+				console.log(response.data.user);
+
+				response.data.map((incident) => {
+					if (incident.user === userData.id) {
+						incidents.push(incident);
+					}
+				});
+				setUserIncidents(incidents);
 			})
+
 			.catch((error) => {
 				console.log(error);
 			});

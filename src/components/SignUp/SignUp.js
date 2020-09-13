@@ -19,6 +19,7 @@ class SignUp extends Component {
 			city: undefined,
 			state: undefined,
 			phone_number: undefined,
+			loggedIn: false,
 		};
 	}
 
@@ -51,6 +52,7 @@ class SignUp extends Component {
 				})
 				.then((response) => {
 					console.log(response);
+					this.setState({ loggedIn: true });
 				})
 				.catch((error) => {
 					this.setError();
@@ -61,6 +63,9 @@ class SignUp extends Component {
 	};
 
 	render() {
+		if (this.state.loggedIn) {
+			return <Redirect to='/sign-in' />;
+		}
 		return (
 			<Form className='sign-up-form'>
 				<Form.Group as={Col} controlId='formGridEmail'>

@@ -7,10 +7,9 @@ function getLocalBackendUrl() {
 		: 'http://localhost:8000';
 }
 
-const backendUrl =
-	JSON.parse(process.env.REACT_APP_IS_LOCAL.toLowerCase())
-		? getLocalBackendUrl()
-		: process.env.REACT_APP_BACKEND_URL;
+const backendUrl = JSON.parse(process.env.REACT_APP_IS_LOCAL.toLowerCase())
+	? getLocalBackendUrl()
+	: process.env.REACT_APP_BACKEND_URL;
 
 function GoodEggBackend() {
 	return axios.create({

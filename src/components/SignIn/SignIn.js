@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import SignUp from '../SignUp/SignUp';
 import Form from 'react-bootstrap/Form';
 import './SignIn.css';
 import { GoodEggBackend } from '../../api/GoodEggBackend';
+import RecentIncidentView from '../RecentIncidentView/RecentIncidentView';
 
 class SignIn extends Component {
 	constructor(props) {
@@ -24,6 +26,10 @@ class SignIn extends Component {
 			[event.target.name]: event.target.value,
 		});
 	};
+	handleLoggedIn = () => {
+		this.props.loggedInHandler();
+		this.props.userEmailHandler(this.state.email);
+	};
 
 	handleSubmit = (event) => {
 		event.preventDefault();
@@ -39,10 +45,11 @@ class SignIn extends Component {
 				)
 				.then((response) => {
 					sessionStorage.setItem('activeEmail', this.state.email);
-					window.location = '/';
+					this.handleLoggedIn();
 				})
 				.catch((error) => {
 					this.setError();
+					console.log(error);
 				});
 		} else {
 			this.setError();
@@ -50,6 +57,9 @@ class SignIn extends Component {
 	};
 
 	render() {
+		if (this.props.loggedIn) {
+			return <Redirect to='/' />;
+		}
 		return (
 			<Form className='sign-in-form'>
 				<Form.Group controlId='formBasicEmail'>

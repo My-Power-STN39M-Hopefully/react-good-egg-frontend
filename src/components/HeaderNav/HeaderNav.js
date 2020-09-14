@@ -27,7 +27,9 @@ class HeaderNav extends Component {
 						</Link>
 						<Link to={this.state.link}>
 							<button type='submit' className='sign-in'>
-								{this.props.userEmail}
+								{sessionStorage.getItem('userToken')
+									? this.props.userEmail
+									: 'Sign-In'}
 							</button>
 						</Link>
 					</main>

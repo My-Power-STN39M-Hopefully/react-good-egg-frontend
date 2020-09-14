@@ -14,6 +14,7 @@ import SignIn from './components/SignIn/SignIn';
 import BadAppleGoodEggView from './components/BadAppleGoodEggView/BadAppleGoodEggView';
 import SignUp from './components/SignUp/SignUp';
 import EditProfile from './components/Profile/EditProfile/EditProfile';
+// changed loggedInHandler at some point to work with this: sessionStorage.getItem('userToken') ? true : false;
 
 function App(props) {
 	const [incidents, setIncidents] = useState([]);
@@ -21,7 +22,7 @@ function App(props) {
 	const [users, setUsers] = useState([]);
 	const [editIncidentId, setEditIncident] = useState('');
 	const [loggedIn, setLoggedIn] = useState(false);
-	const [userEmail, setUserEmail] = useState('Sign-In');
+	const [userEmail, setUserEmail] = useState('');
 	const [loginMessage, setLoginMessage] = useState('Sign-In');
 	const [createPath, setCreatePath] = useState('/sign-in');
 	const [profilePath, setProfilePath] = useState('/sign-in');

@@ -2,7 +2,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 0px;
+	margin-bottom: 40px;
 }
 
 .toggleBadAppleGoodEgg button {
@@ -22,7 +22,7 @@
 .toggleBadAppleGoodEgg button:focus {
 	outline: none;
 }
-.badAppleOrEggSelected{
+.badAppleOrEggSelected {
 	font-size: 20px;
 	border-bottom: var(--mainRedColor) solid 4px;
 }

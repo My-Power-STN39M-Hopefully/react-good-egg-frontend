@@ -66,13 +66,13 @@ function App(props) {
 					props.location.pathname === '/incidents') && (
 					<div className='toggleIncidentOfficer'>
 						<NavLink to={'/incidents'} activeClassName='selected'>
-							<button> Incidents </button>
+							<button className='homeButton'> Incidents </button>
 						</NavLink>
 						<NavLink to={'/'} exact activeClassName='selected'>
-							<button>Apples</button>
+							<button className='homeButton'>Apples</button>
 						</NavLink>
 						<NavLink to={'/officers'} activeClassName='selected'>
-							<button> Officers </button>
+							<button className='homeButton'> Officers </button>
 						</NavLink>
 					</div>
 				)}

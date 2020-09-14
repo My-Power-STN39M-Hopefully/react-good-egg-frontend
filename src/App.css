@@ -8,7 +8,7 @@
 
 .main {
 	margin-top: 56px;
-	margin-bottom: 56px;
+	margin-bottom: 76px;
 }
 
 .formInput {
@@ -37,7 +37,23 @@ button {
 	/* border-radius: 6px; */
 }
 
+.homeButton {
+	width: 95px;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	place-items: center;
+	text-decoration: none;
+}
+
 button:hover {
 	color: var(--mainBlueColor);
 	border: 2px solid var(--mainBlueColor);
+	text-decoration: none;
+}
+
+.homeButton:hover {
+	text-decoration: none;
+	outline: none;
 }

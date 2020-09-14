@@ -1,0 +1,56 @@
+.bm-item {
+	display: inline-block;
+	text-decoration: none;
+	margin-bottom: 10px;
+	transition: color 0.2s;
+	z-index: 100;
+}
+.bm-item:hover {
+	color: grey;
+}
+.bm-burger-button {
+	position: relative;
+	width: 30px;
+	height: 25px;
+	left: 20px;
+	top: 0px;
+}
+.bm-cross-button {
+	height: 24px;
+	width: 24px;
+}
+.bm-burger-bars {
+	background: var(--mainBlueColor);
+}
+.bm-burger-bars-hover {
+	background: var(--mainDarkBlueColor);
+}
+.bm-cross {
+	height: 100px;
+	width: 100px;
+	border: solid 1px rgb(87, 85, 85);
+}
+.bm-menu {
+	background: var(--mainDarkBlueColor);
+	padding-top: 0.5em;
+	text-align: center;
+	font-size: 2em;
+}
+.bm-item-list {
+	padding: 0.8em;
+}
+.bm-item {
+	color: var(--mainBlueColor);
+	margin-bottom: 40px;
+	outline: none;
+}
+
+.logout-button {
+	border: 2px solid var(--mainRedColor);
+	color: red;
+	height: 60px;
+	width: 140px;
+	text-align: center;
+	margin-top: 140px;
+	/* outline: none;  COME BACK TO THIS!!*/
+}

@@ -1,0 +1,33 @@
+.incidentList {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-gap: 2rem;
+	padding: 20px;
+}
+
+.toggleIncidentOfficer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 0px;
+}
+
+.toggleIncidentOfficer button {
+	margin: 20px;
+	background-color: black;
+	color: var(--mainBlueColor);
+	border: none;
+	font: inherit;
+	font-size: 24px;
+	cursor: pointer;
+	height: 50px;
+	outline: none;
+}
+
+.toggleIncidentOfficer button:focus {
+	outline: none;
+}
+.selected button {
+	font-size: 24px;
+	border-bottom: var(--mainRedColor) solid 4px;
+}

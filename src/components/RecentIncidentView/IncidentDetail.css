@@ -1,0 +1,43 @@
+.incidentDetail {
+	margin: 106px 20px 0px 20px;
+	padding: 20px;
+	border: 2px solid var(--mainDarkBlueColor);
+	border-radius: 7px;
+	background-color: var(--mainDivColor);
+	display: grid;
+	grid-template-columns: 120px 1fr;
+}
+
+.incidentDetail h2 {
+	font-size: 24px;
+}
+
+.incidentLabel {
+	font-weight: 800;
+	color: var(--mainTextBlue);
+}
+
+.incidentDetail p {
+	grid-column: 1 / span 2;
+}
+
+.incidentResult {
+	color: var(--mainBlueColor);
+	font-weight: 200;
+	margin-left: 15px;
+	grid-column: 1 / span 2;
+}
+.incidentResult li {
+	margin-left: -40px;
+	list-style: none;
+}
+
+.incidentDetail .badApple {
+	margin-bottom: 20px;
+}
+
+.incidentCategory{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

@@ -1,0 +1,24 @@
+import axios from 'axios';
+import Cookies from 'js-cookie';
+
+function getLocalBackendUrl() {
+	return JSON.parse(process.env.REACT_APP_RUN_LOCAL_CONNECT_DEV.toLowerCase())
+		? process.env.REACT_APP_DEV_ENDPOINT
+		: 'http://localhost:8000';
+}
+
+const backendUrl = JSON.parse(process.env.REACT_APP_IS_LOCAL.toLowerCase())
+	? getLocalBackendUrl()
+	: process.env.REACT_APP_BACKEND_URL;
+
+function GoodEggBackend() {
+	return axios.create({
+		baseURL: backendUrl,
+		headers: {
+			'Content-Type': 'application/json',
+			'x-csrftoken': Cookies.get('csrftoken'),
+		},
+	});
+}
+
+export { GoodEggBackend };

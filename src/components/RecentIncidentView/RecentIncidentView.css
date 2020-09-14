@@ -1,0 +1,56 @@
+.incidentSmall {
+	padding: 10px;
+	border: 2px solid var(--mainDarkBlueColor);
+	border-radius: 7px;
+	width: 100%;
+	background-color: var(--mainDivColor);
+	display: grid;
+	grid-template-columns: 120px 1fr;
+	height: 200px;
+	text-overflow: '[...]';
+}
+
+/* .incidentSmall h3 {
+	color: black;
+} */
+
+.incidentSmall p {
+	color: grey;
+	grid-column: 1 / span 2;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.description {
+	/* text-overflow: ellipsis; */
+}
+
+.incidentSmall h3 {
+	grid-column: 2 / span 1;
+	margin-bottom: 0px;
+	font-size: 24px;
+}
+
+.incidentSmall .date {
+	grid-column: 2 / span 1;
+	margin-top: -10px;
+}
+
+.badApple {
+	border: 2px solid var(--mainRedColor);
+	color: red;
+	display: grid;
+	place-items: center;
+	height: 40px;
+	width: 100px;
+}
+
+.goodEgg {
+	border: 2px solid var(--mainBlueColor);
+	color: var(--mainBlueColor);
+	display: grid;
+	place-items: center;
+	height: 40px;
+	width: 100px;
+}

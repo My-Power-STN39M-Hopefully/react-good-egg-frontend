@@ -1,0 +1,122 @@
+[
+	{
+		"first_name": "John",
+		"last_name": "Smith",
+		"dob": "02/05/1976",
+		"badge_number": "239876",
+		"nationality": "American",
+		"race": "White",
+		"gender": "Male",
+		"force": "District 018",
+		"active": true,
+		"id": 8713254
+	},
+	{
+		"first_name": "Jacob ",
+		"last_name": "Washington",
+		"dob": "01/13/1965",
+		"badge_number": "836512",
+		"nationality": "American",
+		"race": "Black",
+		"gender": "Male",
+		"force": "District 034",
+		"active": true,
+		"id": 8713255
+	},
+	{
+		"first_name": "Sean",
+		"last_name": "Morris",
+		"dob": "11/24/1992",
+		"badge_number": "763520",
+		"nationality": "American",
+		"race": "White",
+		"gender": "Male",
+		"force": "District 004",
+		"active": true,
+		"id": 8713256
+	},
+	{
+		"first_name": "Sandra",
+		"last_name": "Jenique",
+		"dob": "10/03/1983",
+		"badge_number": "874350",
+		"nationality": "American",
+		"race": "White",
+		"gender": "Female",
+		"force": "District 022",
+		"active": true,
+		"id": 8713257
+	},
+	{
+		"first_name": "Edward",
+		"last_name": "Zelitzky",
+		"dob": "10/03/1963",
+		"badge_number": "874350",
+		"nationality": "American",
+		"race": "White",
+		"gender": "Male",
+		"force": "District 022",
+		"active": false,
+		"id": 8713257
+	},
+	{
+		"first_name": "Jerome",
+		"last_name": "Turbyville",
+		"dob": "10/03/1973",
+		"badge_number": "874360",
+		"nationality": "German",
+		"race": "White",
+		"gender": "Male",
+		"force": "District 034",
+		"active": true,
+		"id": 8717157
+	},
+	{
+		"first_name": "Kevin",
+		"last_name": "Osborn",
+		"dob": "10/13/1977",
+		"badge_number": "802360",
+		"nationality": "American",
+		"race": "Asian/Pacific",
+		"gender": "Male",
+		"force": "District 034",
+		"active": true,
+		"id": 8798257
+	},
+	{
+		"first_name": "Paul",
+		"last_name": "Kusinski",
+		"dob": "01/13/1987",
+		"badge_number": "807835",
+		"nationality": "American",
+		"race": "Asian/Pacific",
+		"gender": "Male",
+		"force": "District 004",
+		"active": true,
+		"id": 8763057
+	},
+	{
+		"first_name": "Sandra",
+		"last_name": "Jenique",
+		"dob": "01/13/1987",
+		"badge_number": "878294",
+		"nationality": "American",
+		"race": "Black",
+		"gender": "Female",
+		"force": "District 018",
+		"active": true,
+		"id": 8903907
+	},
+	{
+		"first_name": "John",
+		"last_name": "Rodgers",
+		"dob": "11/23/1982",
+		"badge_number": "890890",
+		"nationality": "American",
+		"race": "Black",
+		"gender": "Male",
+		"force": "District 018",
+		"active": true,
+		"id": 8876391
+	}
+]

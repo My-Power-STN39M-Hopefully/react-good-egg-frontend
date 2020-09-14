@@ -1,38 +1,45 @@
-import { Route, Link, Redirect } from 'react-router-dom';
 import RecentIncidentView from '../RecentIncidentView/RecentIncidentView';
-import data from '../../data.json';
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
+import './Main.css';
+import { GoodEggBackend } from '../../api/GoodEggBackend';
 
-function Main(props) {
-	useEffect(() => {
-		props.incidentsHandler(data);
-	});
+class Main extends Component {
+	constructor() {
+		super();
+		this.state = {};
+	}
+	componentDidMount() {
+		window.scrollTo(0, 0);
+		GoodEggBackend()
+			.get('/incident/recent')
+			.then((response) => {
+				this.props.incidentsHandler(response.data);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
 
-	return (
-		<div>
-			{/* <Link to={'/'}>
-				<h2> Incidents </h2>
-			</Link>
-			<Link to={'/officers'}>
-				<h2> Officers </h2>
-			</Link> */}
-
-			<ul>
-				{props.incidents.map((incident) => {
+	render() {
+		return (
+			<div className='incidentList'>
+				{this.props.incidents.map((incident) => {
 					return (
 						<RecentIncidentView
+							bad_apple={incident.bad_apple}
 							description={incident.description}
 							date={incident.date}
 							category={incident.category}
 							officers={incident.officers}
-							// Will put actual id of obj from database when created //
-							id={incident.user_id}
+							match={this.props.match}
+							id={incident.id}
+							incidents={this.props.incidents}
 						/>
 					);
 				})}
-			</ul>
-		</div>
-	);
+			</div>
+		);
+	}
 }
 
 export default Main;

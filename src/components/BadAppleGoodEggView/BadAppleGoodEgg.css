@@ -1,0 +1,28 @@
+.toggleBadAppleGoodEgg {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 0px;
+}
+
+.toggleBadAppleGoodEgg button {
+	margin: 10px;
+	margin-bottom: 5px;
+	background-color: black;
+	color: var(--mainBlueColor);
+	border: none;
+	font: inherit;
+	word-wrap: none;
+	font-size: 20px;
+	cursor: pointer;
+	height: 50px;
+	outline: none;
+}
+
+.toggleBadAppleGoodEgg button:focus {
+	outline: none;
+}
+.badAppleOrEggSelected{
+	font-size: 20px;
+	border-bottom: var(--mainRedColor) solid 4px;
+}

@@ -1,15 +1,16 @@
-.incidentForm {
+.edit-profile-form {
+	place-items: center;
 	margin: 20px;
 }
 
-.incidentForm input,
-.incidentForm textarea,
-.incidentForm select {
+.edit-profile-form input,
+.edit-profile-form textarea,
+.edit-profile-form select {
 	background-color: var(--mainDivColor);
 	border: 2px solid var(--mainDarkBlueColor);
 	color: rgba(255, 255, 255, 0.5);
 }
 
-.incidentForm label {
+.edit-profile-form label {
 	color: rgba(255, 255, 255, 0.4);
 }

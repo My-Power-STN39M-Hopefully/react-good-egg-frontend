@@ -1,0 +1,29 @@
+.officerDetail {
+	margin: 76px 20px 20px 20px; /* padding: 20px 0px 20px 80px; */
+	border: 2px solid var(--mainDarkBlueColor);
+	border-radius: 7px;
+	background-color: var(--mainDivColor);
+	display: grid;
+}
+
+.officerDetail h2 {
+	font-size: 24px;
+	text-align: center;
+	margin: 40px;
+}
+
+/* .officerDetail p {
+	margin-left: 70px;
+} */
+
+.officerLabel {
+	font-weight: 800;
+	margin-left: 70px;
+	color: var(--mainTextBlue);
+}
+
+.officerResult {
+	color: var(--mainBlueColor);
+	font-weight: 200;
+	margin-left: 85px;
+}

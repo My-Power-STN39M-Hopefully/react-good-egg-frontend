@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom'
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import { GoodEggBackend } from '../../api/GoodEggBackend';
@@ -22,6 +23,7 @@ class CreateIncident extends Component {
 			private: false,
 			bad_apple: true,
 			unknown_officer_selected: false,
+			successfulCreate: false,
 		};
 
 		this.handleInputChange = this.handleInputChange.bind(this);
@@ -75,6 +77,7 @@ class CreateIncident extends Component {
 			description: this.state.description,
 			date: this.state.date,
 			time: this.state.time,
+			bad_apple: this.state.bad_apple,
 			location: this.state.location,
 			formal_complaint: this.state.formal_complaint,
 			formal_complaint_number: this.state.formal_complaint_number,
@@ -85,12 +88,14 @@ class CreateIncident extends Component {
 		GoodEggBackend()
 			.post('incident/', newIncident, { withCredentials: true })
 			.then((response) => {
-				console.log(response.data);
+				this.setState({successfulCreate: true});
 			})
-			.catch((error) => {});
+			.catch((e) => {});
 	};
-
 	render() {
+		if(this.state.successfulCreate){
+			return <Redirect to="/" />
+		}
 		return (
 			<div className='create-form'>
 				<h1>Incident Form</h1>

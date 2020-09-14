@@ -11,6 +11,7 @@ import EditIncident from './components/Profile/EditIncident';
 import IncidentDetail from './components/RecentIncidentView/IncidentDetail';
 import React, { useState } from 'react';
 import SignIn from './components/SignIn/SignIn';
+import BadAppleGoodEggView from './components/BadAppleGoodEggView/BadAppleGoodEggView';
 import SignUp from './components/SignUp/SignUp';
 import EditProfile from './components/Profile/EditProfile/EditProfile';
 
@@ -61,10 +62,14 @@ function App(props) {
 					loginMessage={loginMessage}
 				/>
 				{(props.location.pathname === '/' ||
-					props.location.pathname === '/officers') && (
+					props.location.pathname === '/officers' ||
+					props.location.pathname === '/incidents') && (
 					<div className='toggleIncidentOfficer'>
-						<NavLink to={'/'} exact activeClassName='selected'>
+						<NavLink to={'/incidents'} activeClassName='selected'>
 							<button> Incidents </button>
+						</NavLink>
+						<NavLink to={'/'} exact activeClassName='selected'>
+							<button>Apples</button>
 						</NavLink>
 						<NavLink to={'/officers'} activeClassName='selected'>
 							<button> Officers </button>
@@ -73,6 +78,13 @@ function App(props) {
 				)}
 				<Route
 					path='/'
+					exact
+					render={() => {
+						return <BadAppleGoodEggView />;
+					}}
+				/>
+				<Route
+					path='/incidents'
 					exact
 					render={() => {
 						return (

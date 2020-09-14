@@ -47,7 +47,9 @@ class HeaderNav extends Component {
 								loginMessage={this.props.loginMessage}
 								link={this.state.link}
 							/>
-							<h1 className='title'>GoodEgg</h1>
+							<Link to={'/'} className='title'>
+								GoodEgg
+							</Link>
 							<Link to={this.state.link}>
 								<button type='submit' className='sign-in'>
 									{this.props.userEmail}

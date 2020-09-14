@@ -45,7 +45,7 @@ function App(props) {
 	const loggedInHandler = () => {
 		setLoggedIn(!loggedIn);
 		setLoginMessage('Logout');
-		setCreatePath('/incidents/new');
+		setCreatePath('/incident/new');
 		setProfilePath('/profile');
 	};
 
@@ -63,9 +63,9 @@ function App(props) {
 				/>
 				{(props.location.pathname === '/' ||
 					props.location.pathname === '/officers' ||
-					props.location.pathname === '/incidents') && (
+					props.location.pathname === '/incident') && (
 					<div className='toggleIncidentOfficer'>
-						<NavLink to={'/incidents'} activeClassName='selected'>
+						<NavLink to={'/incident'} activeClassName='selected'>
 							<button className='homeButton'> Incidents </button>
 						</NavLink>
 						<NavLink to={'/'} exact activeClassName='selected'>
@@ -84,7 +84,7 @@ function App(props) {
 					}}
 				/>
 				<Route
-					path='/incidents'
+					path='/incident'
 					exact
 					render={() => {
 						return (
@@ -92,7 +92,7 @@ function App(props) {
 						);
 					}}
 				/>
-				<Route path='/incidents/new' component={CreateIncident} />
+				<Route path='/incident/new' component={CreateIncident} />
 
 				<Route
 					path='/officers'
@@ -138,7 +138,7 @@ function App(props) {
 					}}
 				/>
 				<Route
-					path='/incidents/:id/edit'
+					path='/incident/:id/edit'
 					render={(routerProps) => {
 						return (
 							<EditIncident
@@ -151,7 +151,7 @@ function App(props) {
 				/>
 
 				<Route
-					path='/incidents/:id'
+					path='/incident/:id'
 					exact
 					render={(routerProps) => {
 						return (

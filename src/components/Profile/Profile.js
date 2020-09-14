@@ -82,7 +82,7 @@ function Profile(props) {
 								<p className='date'>{incident.date} </p>
 								<p>{incident.description}</p>
 								<p>Officer(s) Involved: {incident.officers}</p>
-								<Link to={'incidents/' + incident.id + '/edit'}>
+								<Link to={'incident/' + incident.id + '/edit'}>
 									<button
 										className='edit-button'
 										id={incident.id}

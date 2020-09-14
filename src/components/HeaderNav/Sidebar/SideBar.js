@@ -27,7 +27,7 @@ class SideBar extends Component {
 					<Link to='/' onClick={() => this.closeMenu()}>
 						Incidents
 					</Link>
-					<Link to='/incidents/new' onClick={() => this.closeMenu()}>
+					<Link to='/incident/new' onClick={() => this.closeMenu()}>
 						New Incident
 					</Link>
 					<Link to='/officers' onClick={() => this.closeMenu()}>

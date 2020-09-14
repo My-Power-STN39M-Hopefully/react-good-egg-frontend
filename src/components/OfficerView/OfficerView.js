@@ -1,6 +1,5 @@
-import React, { useState, useEffect, Component } from 'react';
-import { Route, Link, Redirect } from 'react-router-dom';
-import officerData from '../../officerData.json';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './OfficerView.css';
 import { GoodEggBackend } from '../../api/GoodEggBackend';
 

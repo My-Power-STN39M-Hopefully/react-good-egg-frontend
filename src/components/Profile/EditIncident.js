@@ -69,7 +69,13 @@ class EditIncident extends Component {
 
 	deleteIncident = (event) => {
 		event.preventDefault();
-		//const newIncident = this.state.editedIncident;
+		GoodEggBackend()
+			.delete(`incident/${this.props.editIncidentId}`)
+			.then((response) => {
+				this.setState({ updatedIncident: true });
+			})
+			.catch((e) => {});
+		// const newIncident = this.state.editedIncident;
 	};
 
 	render() {

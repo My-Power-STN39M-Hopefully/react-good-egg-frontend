@@ -1,40 +1,81 @@
 import React, { Component } from 'react';
 import RecentIncidentView from '../RecentIncidentView/RecentIncidentView';
+import { GoodEggBackend } from '../../api/GoodEggBackend';
 import './OfficerDetail.css';
 
 class OfficerDetail extends Component {
+	constructor() {
+		super();
+		this.state = {
+			officerDetail: {},
+			officerIncidents: [],
+		};
+	}
+
 	componentDidMount() {
 		window.scrollTo(0, 0);
+		GoodEggBackend()
+			.get(`officer/${this.props.match.params.id}`)
+			.then((response) => {
+				this.setState({ officerDetail: response.data });
+			})
+			.catch((error) => {
+				console.log('error');
+			});
+		GoodEggBackend()
+			.get('incident/')
+			.then((response) => {
+				let incidents = [];
+				response.data.map((incident) => {
+					if (
+						incident.officers.includes(parseInt(this.props.match.params.id))
+					) {
+						incidents.push(incident);
+					}
+				});
+				this.setState({ officerIncidents: incidents });
+			})
+			.catch((error) => {
+				console.log('error');
+			});
 	}
 
 	render() {
-		// will be doing a fetch below to retrieve individual officer, waiting for database to go live
-		let result = {};
-		for (let i = 0; i < this.props.officers.length; i++) {
-			if (this.props.match.params.id === this.props.officers[i].id.toString()) {
-				result = this.props.officers[i];
-			}
-		}
-
 		return (
-			<div className='officerDetail'>
-				<main>
-					<h3>
-						Name: {result.first_name} {result.last_name}{' '}
-					</h3>
-					<p>DOB: {result.dob}</p>
-					<p>Badge Number: {result.badge_number}</p>
-					<p>Nationality: {result.nationality}</p>
-					<p>Race: {result.race}</p>
-					<p>Gender: {result.gender}</p>
-					<p>Unit: {result.force}</p>
-					<p>Active? {result.active}</p>
+			<div>
+				<main className='officerDetail'>
+					<h2>
+						Officer: {this.state.officerDetail.first_name}{' '}
+						{this.state.officerDetail.last_name}
+					</h2>
+					<p className='officerLabel'>DOB: </p>
+					<p className='officerResult'>{this.state.officerDetail.dob}</p>
+					<p className='officerLabel'>Badge Number: </p>
+					<p className='officerResult'>
+						{this.state.officerDetail.badge_number}
+					</p>
+					<p className='officerLabel'>Nationality:</p>
+					<p className='officerResult'>
+						{this.state.officerDetail.nationality}
+					</p>
+					<p className='officerLabel'>Race:</p>
+					<p className='officerResult'>{this.state.officerDetail.race}</p>
+					<p className='officerLabel'>Gender:</p>
+					<p className='officerResult'>{this.state.officerDetail.gender}</p>
+					<p className='officerLabel'>Unit:</p>
+					<p className='officerResult'>{this.state.officerDetail.force}</p>
+
+					{this.state.officerDetail.active ? (
+						<p className='officerLabel'>Active Officer</p>
+					) : (
+						<p className='officerLabel'>Not Currently Active</p>
+					)}
 				</main>
 				<div>
-					<h3> Incidents: </h3>
+					<h2> Incidents: </h2>
 
 					{/* This will be mapping over the date from fetch for the incidents that match the officer */}
-					{this.props.incidents.map((incident) => {
+					{this.state.officerIncidents.map((incident) => {
 						return (
 							<RecentIncidentView
 								description={incident.description}

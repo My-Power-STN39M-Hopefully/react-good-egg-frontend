@@ -2,6 +2,7 @@
 	place-items: center;
 	margin: 20px;
 	margin-top: 150px;
+	color: var(--mainBlueColor);
 }
 .sign-in-button {
 	margin-right: 20px;

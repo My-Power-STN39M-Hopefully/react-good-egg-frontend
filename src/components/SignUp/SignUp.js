@@ -1,4 +1,5 @@
-import React, { Component, Redirect } from 'react';
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import './SignUp.css';
@@ -6,7 +7,7 @@ import { GoodEggBackend } from '../../api/GoodEggBackend';
 
 class SignUp extends Component {
 	constructor(props) {
-		super(props);
+		super();
 		this.state = {
 			email: undefined,
 			password1: undefined,
@@ -19,7 +20,7 @@ class SignUp extends Component {
 			city: undefined,
 			state: undefined,
 			phone_number: undefined,
-			loggedIn: false,
+			addedAccount: false,
 		};
 	}
 
@@ -51,8 +52,7 @@ class SignUp extends Component {
 					phone_number: this.state.phone_number,
 				})
 				.then((response) => {
-					console.log(response);
-					this.setState({ loggedIn: true });
+					this.setState({ addedAccount: true });
 				})
 				.catch((error) => {
 					this.setError();
@@ -63,7 +63,7 @@ class SignUp extends Component {
 	};
 
 	render() {
-		if (this.state.loggedIn) {
+		if (this.state.addedAccount) {
 			return <Redirect to='/sign-in' />;
 		}
 		return (

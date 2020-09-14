@@ -1,8 +1,6 @@
-import React, { useState, useEffect, Component } from 'react';
-import { Route, Link, Redirect } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { GoodEggBackend } from '../../api/GoodEggBackend';
-import { Button } from 'react-bootstrap/Button';
-import { NavLink } from 'react-router-dom';
 import './BadAppleGoodEgg.css';
 
 class BadAppleGoodEggView extends Component {

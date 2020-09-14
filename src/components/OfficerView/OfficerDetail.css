@@ -4,17 +4,23 @@
 	border-radius: 7px;
 	background-color: var(--mainDivColor);
 	display: grid;
+	padding-bottom: 10px;
 }
 
 .officerDetail h2 {
 	font-size: 24px;
 	text-align: center;
-	margin: 40px;
+	margin: 20px 40px 10px 40px;
 }
 
-/* .officerDetail p {
-	margin-left: 70px;
-} */
+.officerRaceGender {
+	text-align: center;
+	color: var(--mainBlueColor);
+}
+
+.officerIncidentTitle {
+	margin-left: 20px;
+}
 
 .officerLabel {
 	font-weight: 800;
@@ -26,4 +32,8 @@
 	color: var(--mainBlueColor);
 	font-weight: 200;
 	margin-left: 85px;
+}
+
+.officerIncident {
+	margin: 20px;
 }

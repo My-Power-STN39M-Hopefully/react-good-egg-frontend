@@ -11,13 +11,9 @@ class Main extends Component {
 	componentDidMount() {
 		window.scrollTo(0, 0);
 		GoodEggBackend()
-			.get('/incident/')
+			.get('/incident/recent')
 			.then((response) => {
 				this.props.incidentsHandler(response.data);
-				//Cookies.set('access_token', response.headers['Set-Cookie']);
-				// sessionStorage.setItem('activeEmail', this.state.email);
-				//window.location = '/';
-				console.log(response.data);
 			})
 			.catch((error) => {
 				console.log(error);

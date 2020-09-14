@@ -15,7 +15,7 @@ function RecentIncidentView(props) {
 				) : (
 					<div className='goodEgg'>Good Egg</div>
 				)}
-				<h3>{props.category}</h3>
+				<h3 className='incidentCategory'>{props.category}</h3>
 				<p className='date'> {props.date}</p>
 
 				<p className='description'>{props.description}</p>

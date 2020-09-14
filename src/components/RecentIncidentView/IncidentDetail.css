@@ -35,3 +35,9 @@
 .incidentDetail .badApple {
 	margin-bottom: 20px;
 }
+
+.incidentCategory{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

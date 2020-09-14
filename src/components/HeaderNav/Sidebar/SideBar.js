@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import './SideBar.css';
-import { render } from '@testing-library/react';
 
 class SideBar extends Component {
 	state = {
@@ -41,9 +40,9 @@ class SideBar extends Component {
 						About
 					</Link>
 					{/* <a href='/search'>Search</a> */}
-					<div>
+					<Link to={this.props.link}>
 						<button className='logout-button'>{this.props.loginMessage}</button>
-					</div>
+					</Link>
 				</Menu>
 			</div>
 		);

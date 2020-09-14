@@ -1,10 +1,8 @@
-import React, { useEffect, Component } from 'react';
-import { Link, Redirect, Route } from 'react-router-dom';
-import SignUp from '../SignUp/SignUp';
+import React, { Component } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import './SignIn.css';
 import { GoodEggBackend } from '../../api/GoodEggBackend';
-import RecentIncidentView from '../RecentIncidentView/RecentIncidentView';
 
 class SignIn extends Component {
 	constructor(props) {
@@ -44,10 +42,7 @@ class SignIn extends Component {
 					{ withCredentials: true }
 				)
 				.then((response) => {
-					console.log(response);
-					//Cookies.set('access_token', response.headers['Set-Cookie']);
 					sessionStorage.setItem('activeEmail', this.state.email);
-					//window.location = '/';
 					this.handleLoggedIn();
 				})
 				.catch((error) => {

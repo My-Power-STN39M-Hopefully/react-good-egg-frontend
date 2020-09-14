@@ -1,21 +1,38 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import './SideBar.css';
 
 class SideBar extends Component {
-	state = {
-		menuOpen: false,
+	constructor(props) {
+		super(props);
+		this.state = {
+			menuOpen: false,
+			logginOut: false,
+		};
+	}
+
+	handleMenuChange = (state) => {
+		this.setState({ menuOpen: state.isOpen });
 	};
 
-	handleMenuChange(state) {
-		this.setState({ menuOpen: state.isOpen });
-	}
-
-	closeMenu() {
+	closeMenu = () => {
 		this.setState({ menuOpen: false });
-	}
+	};
+
+	logoutSignInHandler = (event) => {
+		if (this.props.loginMessage !== 'Sign-In') {
+			sessionStorage.clear();
+			console.log('hello');
+			this.setState({ logginOut: true });
+		} else {
+			return <Redirect to='/sign-in' />;
+		}
+	};
 	render() {
+		if (this.state.logginOut) {
+			return <Redirect to='/' />;
+		}
 		return (
 			<div id='outer-container'>
 				<Menu
@@ -27,7 +44,7 @@ class SideBar extends Component {
 					<Link to='/' onClick={() => this.closeMenu()}>
 						Incidents
 					</Link>
-					<Link to='/incidents/new' onClick={() => this.closeMenu()}>
+					<Link to='/incident/new' onClick={() => this.closeMenu()}>
 						New Incident
 					</Link>
 					<Link to='/officers' onClick={() => this.closeMenu()}>
@@ -40,9 +57,14 @@ class SideBar extends Component {
 						About
 					</Link>
 					{/* <a href='/search'>Search</a> */}
-					<Link to={this.props.link}>
-						<button className='logout-button'>{this.props.loginMessage}</button>
-					</Link>
+					{/* <Link to={this.props.link}> */}
+					<button
+						className='logout-button'
+						value={this.props.loginMessage}
+						onClick={this.logoutSignInHandler}>
+						{this.props.loginMessage}
+					</button>
+					{/* </Link> */}
 				</Menu>
 			</div>
 		);

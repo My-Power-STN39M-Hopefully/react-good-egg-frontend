@@ -32,7 +32,7 @@ function Profile(props) {
 			.get(`/incident`)
 			.then((response) => {
 				let incidents = [];
-				console.log(response.data.user);
+				console.log(response);
 
 				response.data.map((incident) => {
 					if (incident.user === userData.id) {
@@ -50,7 +50,7 @@ function Profile(props) {
 	const handleEditClick = (event) => {
 		props.editIncidentHandler(event.target.id);
 	};
-	console.log(userData);
+
 	return (
 		<div className='profile'>
 			<div className='user-icon'>{String(userData.first_name).charAt(0)}</div>

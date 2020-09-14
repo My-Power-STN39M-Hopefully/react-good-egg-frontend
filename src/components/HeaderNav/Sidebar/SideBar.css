@@ -51,6 +51,7 @@
 	height: 60px;
 	width: 140px;
 	text-align: center;
-	margin-top: 140px;
+	margin: 0 auto;
+	margin-top: 50px;
 	/* outline: none;  COME BACK TO THIS!!*/
 }

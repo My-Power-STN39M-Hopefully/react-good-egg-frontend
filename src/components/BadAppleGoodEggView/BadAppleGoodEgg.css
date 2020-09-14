@@ -10,14 +10,14 @@
 	margin-bottom: 5px;
 	background-color: black;
 	/* color: var(--mainBlueColor); */
-	color: green;
+	color: purple;
 	border: none;
 	font: inherit;
 	word-wrap: none;
 	font-size: 20px;
 	cursor: pointer;
 	height: 50px;
-	width: 120px;
+	width: 150px;
 	outline: none;
 	font-size: 20px;
 }

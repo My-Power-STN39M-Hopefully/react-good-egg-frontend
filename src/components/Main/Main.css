@@ -7,13 +7,13 @@
 
 .toggleIncidentOfficer {
 	display: flex;
-	justify-content: center;
 	align-items: center;
 	margin-bottom: 0px;
+	justify-content: space-between;
+	margin: 0 20px 0 20px;
 }
 
 .toggleIncidentOfficer button {
-	margin: 20px;
 	background-color: black;
 	color: var(--mainBlueColor);
 	border: none;
@@ -22,12 +22,16 @@
 	cursor: pointer;
 	height: 50px;
 	outline: none;
+	text-align: center;
+	text-decoration: none;
 }
 
 .toggleIncidentOfficer button:focus {
 	outline: none;
+	text-decoration: none;
 }
 .selected button {
 	font-size: 24px;
 	border-bottom: var(--mainRedColor) solid 4px;
+	text-decoration: none;
 }

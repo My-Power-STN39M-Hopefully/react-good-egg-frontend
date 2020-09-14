@@ -8,7 +8,6 @@ class SideBar extends Component {
 		super(props);
 		this.state = {
 			menuOpen: false,
-			logginOut: false,
 		};
 	}
 
@@ -23,16 +22,12 @@ class SideBar extends Component {
 	logoutSignInHandler = (event) => {
 		if (this.props.loginMessage !== 'Sign-In') {
 			sessionStorage.clear();
-			console.log('hello');
-			this.setState({ logginOut: true });
+			window.location.reload();
 		} else {
 			return <Redirect to='/sign-in' />;
 		}
 	};
 	render() {
-		if (this.state.logginOut) {
-			return <Redirect to='/' />;
-		}
 		return (
 			<div id='outer-container'>
 				<Menu

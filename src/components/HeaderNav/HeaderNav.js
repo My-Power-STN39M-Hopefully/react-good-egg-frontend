@@ -23,7 +23,7 @@ class HeaderNav extends Component {
 							link={this.state.link}
 						/>
 						<Link to={'/'} exact className='title'>
-							GoodEgg
+							GoodEggs
 						</Link>
 						<Link to={this.state.link}>
 							<button type='submit' className='sign-in'>

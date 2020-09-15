@@ -14,6 +14,7 @@ import SignIn from './components/SignIn/SignIn';
 import BadAppleGoodEggView from './components/BadAppleGoodEggView/BadAppleGoodEggView';
 import SignUp from './components/SignUp/SignUp';
 import EditProfile from './components/Profile/EditProfile/EditProfile';
+// changed loggedInHandler at some point to work with this: sessionStorage.getItem('userToken') ? true : false;
 
 function App(props) {
 	const [incidents, setIncidents] = useState([]);
@@ -21,7 +22,7 @@ function App(props) {
 	const [users, setUsers] = useState([]);
 	const [editIncidentId, setEditIncident] = useState('');
 	const [loggedIn, setLoggedIn] = useState(false);
-	const [userEmail, setUserEmail] = useState('Sign-In');
+	const [userEmail, setUserEmail] = useState('');
 	const [loginMessage, setLoginMessage] = useState('Sign-In');
 	const [createPath, setCreatePath] = useState('/sign-in');
 	const [profilePath, setProfilePath] = useState('/sign-in');
@@ -45,7 +46,7 @@ function App(props) {
 	const loggedInHandler = () => {
 		setLoggedIn(!loggedIn);
 		setLoginMessage('Logout');
-		setCreatePath('/incidents/new');
+		setCreatePath('/incident/new');
 		setProfilePath('/profile');
 	};
 
@@ -63,16 +64,16 @@ function App(props) {
 				/>
 				{(props.location.pathname === '/' ||
 					props.location.pathname === '/officers' ||
-					props.location.pathname === '/incidents') && (
+					props.location.pathname === '/incident') && (
 					<div className='toggleIncidentOfficer'>
-						<NavLink to={'/incidents'} activeClassName='selected'>
-							<button> Incidents </button>
+						<NavLink to={'/incident'} activeClassName='selected'>
+							<button className='homeButton'> Incidents </button>
 						</NavLink>
 						<NavLink to={'/'} exact activeClassName='selected'>
-							<button>Apples</button>
+							<button className='homeButton'>Apples</button>
 						</NavLink>
 						<NavLink to={'/officers'} activeClassName='selected'>
-							<button> Officers </button>
+							<button className='homeButton'> Officers </button>
 						</NavLink>
 					</div>
 				)}
@@ -84,7 +85,7 @@ function App(props) {
 					}}
 				/>
 				<Route
-					path='/incidents'
+					path='/incident'
 					exact
 					render={() => {
 						return (
@@ -92,7 +93,7 @@ function App(props) {
 						);
 					}}
 				/>
-				<Route path='/incidents/new' component={CreateIncident} />
+				<Route path='/incident/new' component={CreateIncident} />
 
 				<Route
 					path='/officers'
@@ -138,7 +139,7 @@ function App(props) {
 					}}
 				/>
 				<Route
-					path='/incidents/:id/edit'
+					path='/incident/:id/edit'
 					render={(routerProps) => {
 						return (
 							<EditIncident
@@ -151,7 +152,7 @@ function App(props) {
 				/>
 
 				<Route
-					path='/incidents/:id'
+					path='/incident/:id'
 					exact
 					render={(routerProps) => {
 						return (

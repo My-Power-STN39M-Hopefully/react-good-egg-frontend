@@ -32,7 +32,7 @@ function Profile(props) {
 			.get(`/incident`)
 			.then((response) => {
 				let incidents = [];
-				console.log(response.data.user);
+				console.log(response);
 
 				response.data.map((incident) => {
 					if (incident.user === userData.id) {
@@ -50,6 +50,7 @@ function Profile(props) {
 	const handleEditClick = (event) => {
 		props.editIncidentHandler(event.target.id);
 	};
+
 	return (
 		<div className='profile'>
 			<div className='user-icon'>{String(userData.first_name).charAt(0)}</div>
@@ -70,7 +71,7 @@ function Profile(props) {
 				{/* placeholder until we get signUp-form and signIn-form operating with api */}
 				{userIncidents.map((incident) => {
 					return (
-						<Link to={'incidents/' + incident.id}>
+						<Link to={'incident/' + incident.id}>
 							<div className='incidentSmall'>
 								{incident.bad_apple === true ? (
 									<div className='badApple'>Bad Apple</div>
@@ -80,8 +81,8 @@ function Profile(props) {
 								<h3>{incident.category}</h3>
 								<p className='date'>{incident.date} </p>
 								<p>{incident.description}</p>
-								<p>Officer/s Involved: {incident.officers}</p>
-								<Link to={'incidents/' + incident.id + '/edit'}>
+								<p>Officer(s) Involved: {incident.officers}</p>
+								<Link to={'incident/' + incident.id + '/edit'}>
 									<button
 										className='edit-button'
 										id={incident.id}

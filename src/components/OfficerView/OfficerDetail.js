@@ -48,6 +48,11 @@ class OfficerDetail extends Component {
 						Officer: {this.state.officerDetail.first_name}{' '}
 						{this.state.officerDetail.last_name}
 					</h2>
+
+					<p className='officerRaceGender'>
+						{`${this.state.officerDetail.race} ${this.state.officerDetail.gender}`}
+					</p>
+
 					<p className='officerLabel'>DOB: </p>
 					<p className='officerResult'>{this.state.officerDetail.dob}</p>
 					<p className='officerLabel'>Badge Number: </p>
@@ -58,10 +63,6 @@ class OfficerDetail extends Component {
 					<p className='officerResult'>
 						{this.state.officerDetail.nationality}
 					</p>
-					<p className='officerLabel'>Race:</p>
-					<p className='officerResult'>{this.state.officerDetail.race}</p>
-					<p className='officerLabel'>Gender:</p>
-					<p className='officerResult'>{this.state.officerDetail.gender}</p>
 					<p className='officerLabel'>Unit:</p>
 					<p className='officerResult'>{this.state.officerDetail.force}</p>
 
@@ -72,20 +73,22 @@ class OfficerDetail extends Component {
 					)}
 				</main>
 				<div>
-					<h2> Incidents: </h2>
+					<h2 className='officerIncidentTitle'> Incidents: </h2>
 
 					{/* This will be mapping over the date from fetch for the incidents that match the officer */}
 					{this.state.officerIncidents.map((incident) => {
 						return (
-							<RecentIncidentView
-								description={incident.description}
-								date={incident.date}
-								category={incident.category}
-								officers={incident.officers}
-								match={this.props.match}
-								id={incident.id}
-								bad_apple={incident.bad_apple}
-							/>
+							<div className='officerIncident'>
+								<RecentIncidentView
+									description={incident.description}
+									date={incident.date}
+									category={incident.category}
+									officers={incident.officers}
+									match={this.props.match}
+									id={incident.id}
+									bad_apple={incident.bad_apple}
+								/>
+							</div>
 						);
 					})}
 				</div>

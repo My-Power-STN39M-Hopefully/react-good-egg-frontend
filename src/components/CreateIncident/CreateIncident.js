@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import { GoodEggBackend } from '../../api/GoodEggBackend';
+import './CreateIncident.css';
 
 class CreateIncident extends Component {
 	constructor() {
@@ -88,13 +89,13 @@ class CreateIncident extends Component {
 		GoodEggBackend()
 			.post('incident/', newIncident, { withCredentials: true })
 			.then((response) => {
-				this.setState({successfulCreate: true});
+				this.setState({ successfulCreate: true });
 			})
 			.catch((e) => {});
 	};
 	render() {
-		if(this.state.successfulCreate){
-			return <Redirect to="/" />
+		if (this.state.successfulCreate) {
+			return <Redirect to='/' />;
 		}
 		return (
 			<div className='create-form'>

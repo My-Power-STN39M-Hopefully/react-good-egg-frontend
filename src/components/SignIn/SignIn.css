@@ -7,3 +7,15 @@
 .sign-in-button {
 	margin-right: 20px;
 }
+
+.sign-in-form input,
+.sign-in-form textarea,
+.sign-in-form select {
+	background-color: var(--mainDivColor);
+	border: 2px solid var(--mainDarkBlueColor);
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.sign-in-form label {
+	color: rgba(255, 255, 255, 0.4);
+}

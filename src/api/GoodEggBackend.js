@@ -1,5 +1,4 @@
 import axios from 'axios';
-import Cookies from 'js-cookie';
 
 function getLocalBackendUrl() {
 	return JSON.parse(process.env.REACT_APP_RUN_LOCAL_CONNECT_DEV.toLowerCase())
@@ -12,12 +11,15 @@ const backendUrl = JSON.parse(process.env.REACT_APP_IS_LOCAL.toLowerCase())
 	: process.env.REACT_APP_BACKEND_URL;
 
 function GoodEggBackend() {
+	let headers = {}
+	let token = sessionStorage.getItem('userToken');
+	if(token != null){
+		headers['authorization'] = 'Token ' +token;
+	}
+
 	return axios.create({
 		baseURL: backendUrl,
-		headers: {
-			'Content-Type': 'application/json',
-			'x-csrftoken': Cookies.get('csrftoken'),
-		},
+		headers: headers,
 	});
 }
 

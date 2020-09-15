@@ -2,16 +2,27 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import './EditIncident.css';
+import { GoodEggBackend } from '../../api/GoodEggBackend';
+import { Redirect } from 'react-router-dom';
 
 class EditIncident extends Component {
 	constructor() {
 		super();
 		this.state = {
 			editedIncident: {},
+			updatedIncident: false,
 		};
 	}
 
 	componentDidMount() {
+		GoodEggBackend()
+			.get(`incident/${this.props.editIncidentId}`)
+			.then((response) => {
+				this.setState({ editedIncident: response.data });
+			})
+			.catch((error) => {
+				console.log('error');
+			});
 		window.scrollTo(0, 0);
 	}
 
@@ -20,7 +31,7 @@ class EditIncident extends Component {
 	};
 
 	handleInputChange = (event) => {
-		const editIncident = this.state.editIncident;
+		const editIncident = this.state.editedIncident;
 		this.setEditIncident({
 			category: editIncident.category,
 			officers: editIncident.officers,
@@ -39,7 +50,16 @@ class EditIncident extends Component {
 	};
 
 	handleSubmit = (event) => {
+		console.log(this.state.editedIncident);
 		event.preventDefault();
+		GoodEggBackend()
+			.put(`incident/${this.props.editIncidentId}`, this.state.editedIncident, {
+				withCredentials: true,
+			})
+			.then((response) => {
+				this.setState({ updatedIncident: true });
+			})
+			.catch((e) => {});
 		//const newIncident = this.state.editedIncident;
 		//const url = `/incidents/edit/${newIncident.id}`;
 		// newIncident will be the updated object we sent in the PUT request.
@@ -49,19 +69,19 @@ class EditIncident extends Component {
 
 	deleteIncident = (event) => {
 		event.preventDefault();
-		//const newIncident = this.state.editedIncident;
+		GoodEggBackend()
+			.delete(`incident/${this.props.editIncidentId}`)
+			.then((response) => {
+				this.setState({ updatedIncident: true });
+			})
+			.catch((e) => {});
+		// const newIncident = this.state.editedIncident;
 	};
 
 	render() {
-		let result = {};
-		// will be doing a fetch below to retrieve individual incident, waiting for database to go live
-		// this will likely load on didmount to update editedIncident in state
-		for (let i = 0; i < this.props.incidents.length; i++) {
-			if (this.props.editIncidentId === this.props.incidents[i].id.toString()) {
-				result = this.props.incidents[i];
-			}
+		if (this.state.updatedIncident) {
+			return <Redirect to='/profile' />;
 		}
-
 		return (
 			<div className='create-form'>
 				<h1>Edit Incident Form</h1>
@@ -70,8 +90,8 @@ class EditIncident extends Component {
 						<Form.Label>Category</Form.Label>
 						<Form.Control
 							as='select'
-							defaultValue={result.category}
-							// defaultValue={result.category}
+							defaultValue={this.state.editedIncident.category}
+							// defaultValue={this.state.editedIncident.category}
 							onChange={this.handleInputChange}>
 							<option>Choose...</option>
 							<option>Conduct Unbecoming (Off Duty)</option>
@@ -90,11 +110,11 @@ class EditIncident extends Component {
 							<option>OTHER</option>
 						</Form.Control>
 					</Form.Group>
-					{result.category === 'OTHER' && (
+					{this.state.editedIncident.category === 'OTHER' && (
 						<Form.Group controlId='category_description'>
 							<Form.Control
 								type='text'
-								defaultValue={result.category_description}
+								defaultValue={this.state.editedIncident.category_description}
 								// placeholder='Please Enter New Category'
 								onChange={this.handleInputChange}></Form.Control>
 						</Form.Group>
@@ -104,7 +124,7 @@ class EditIncident extends Component {
 						<Form.Label>Officer</Form.Label>
 						<Form.Control
 							as='select'
-							defaultValue={result.officers}
+							defaultValue={this.state.editedIncident.officers}
 							onChange={this.handleInputChange}>
 							<option>Choose...</option>
 							<option>Unknown</option>
@@ -120,11 +140,11 @@ class EditIncident extends Component {
 						</Form.Control>
 					</Form.Group>
 
-					{result.officers === 'Unknown' && (
+					{this.state.editedIncident.officers === 'Unknown' && (
 						<Form.Group controlId='officer_description'>
 							<Form.Control
 								type='text'
-								defaultValue={result.officers_description}
+								defaultValue={this.state.editedIncident.officers_description}
 								placeholder='Please Enter Description of Officer'
 								onChange={this.handleInputChange}
 							/>
@@ -136,7 +156,7 @@ class EditIncident extends Component {
 						<Form.Control
 							as='textarea'
 							rows='3'
-							defaultValue={result.description}
+							defaultValue={this.state.editedIncident.description}
 							onChange={this.handleInputChange}
 						/>
 					</Form.Group>
@@ -146,7 +166,7 @@ class EditIncident extends Component {
 							<Form.Label>Date</Form.Label>
 							<Form.Control
 								type='date'
-								defaultValue={result.date}
+								defaultValue={this.state.editedIncident.date}
 								onChange={this.handleInputChange}
 							/>
 						</Form.Group>
@@ -155,7 +175,7 @@ class EditIncident extends Component {
 							<Form.Label>Time</Form.Label>
 							<Form.Control
 								type='time'
-								defaultValue={result.time}
+								defaultValue={this.state.editedIncident.time}
 								onChange={this.handleInputChange}
 							/>
 						</Form.Group>
@@ -165,7 +185,7 @@ class EditIncident extends Component {
 						<Form.Label>Location</Form.Label>
 						<Form.Control
 							type='textarea'
-							defaultValue={result.location}
+							defaultValue={this.state.editedIncident.location}
 							placeholder='Location of Incident'
 							onChange={this.handleInputChange}
 						/>
@@ -174,14 +194,14 @@ class EditIncident extends Component {
 					<Form.Group controlId='formal_complaint'>
 						<Form.Check
 							type='checkbox'
-							checked={result.formal_complaint}
-							defaultValue={result.formal_complaint}
+							checked={this.state.editedIncident.formal_complaint}
+							defaultValue={this.state.editedIncident.formal_complaint}
 							label='I filed a formal police complaint'
 							onChange={this.handleInputChange}
 						/>
 						<Form.Group controlId='formal_complaint_number'>
 							<Form.Control
-								defaultValue={result.formal_complaint_number}
+								defaultValue={this.state.editedIncident.formal_complaint_number}
 								placeholder='Formal Complaint Number'
 								onChange={this.handleInputChange}
 							/>
@@ -192,15 +212,15 @@ class EditIncident extends Component {
 						<Form.Check
 							type='checkbox'
 							label='There were witnesses'
-							checked={result.witnesses_present}
-							defaultValue={result.witnesses_present}
+							checked={this.state.editedIncident.witnesses_present}
+							defaultValue={this.state.editedIncident.witnesses_present}
 							onChange={this.handleInputChange}
 						/>
 						<Form.Group controlId='witnesses_information'>
 							<Form.Control
 								as='textarea'
 								rows='3'
-								defaultValue={result.witnesses_information}
+								defaultValue={this.state.editedIncident.witnesses_information}
 								placeholder='Witness Information'
 								onChange={this.handleInputChange}
 							/>
@@ -210,8 +230,8 @@ class EditIncident extends Component {
 						<Form.Check
 							type='checkbox'
 							label='Keep Private'
-							checked={result.private}
-							defaultValue={result.private}
+							checked={this.state.editedIncident.private}
+							defaultValue={this.state.editedIncident.private}
 							onChange={this.handleInputChange}
 						/>
 					</Form.Group>

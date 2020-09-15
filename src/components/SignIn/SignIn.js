@@ -43,6 +43,7 @@ class SignIn extends Component {
 				)
 				.then((response) => {
 					sessionStorage.setItem('activeEmail', this.state.email);
+					sessionStorage.setItem('userToken', response.data.key);
 					this.handleLoggedIn();
 				})
 				.catch((error) => {
